@@ -65,10 +65,30 @@
                 smoking: 'no',
                 alcohol: '1'
             });
+            
+            // AJOUT : État pour les données bien-être
+            const [wellbeingData, setWellbeingData] = useState({
+                mentalHealth: '3',
+                anxiety: '3',
+                socialConnections: '3',
+                workLifeBalance: '3',
+                waterIntake: '4',
+                fruits: '3',
+                vegetables: '3'
+            });
+            
             const [result, setResult] = useState(null);
+            
+            // AJOUT : État pour le score bien-être
+            const [wellbeingScore, setWellbeingScore] = useState(null);
 
             const handleInputChange = (e) => {
                 setFormData({ ...formData, [e.target.name]: e.target.value });
+            };
+            
+            // AJOUT : Handler pour les inputs bien-être
+            const handleWellbeingChange = (e) => {
+                setWellbeingData({ ...wellbeingData, [e.target.name]: e.target.value });
             };
 
             const calculateBioAge = () => {
@@ -173,6 +193,66 @@
                 });
                 setStep('result');
             };
+            
+            // AJOUT : Fonction de calcul du score bien-être
+            const calculateWellbeingScore = () => {
+                let score = 0;
+                let max = 0;
+
+                score += parseInt(wellbeingData.mentalHealth) * 2;
+                max += 10;
+                
+                score += (6 - parseInt(wellbeingData.anxiety)) * 2;
+                max += 10;
+
+                score += parseInt(wellbeingData.socialConnections) * 2;
+                max += 10;
+
+                score += parseInt(wellbeingData.workLifeBalance) * 2;
+                max += 10;
+
+                score += parseInt(wellbeingData.waterIntake);
+                max += 5;
+
+                score += parseInt(wellbeingData.fruits);
+                max += 5;
+
+                score += parseInt(wellbeingData.vegetables);
+                max += 5;
+
+                const percentage = Math.round((score / max) * 100);
+
+                let cat = '';
+                let col = '';
+                let recs = [];
+
+                if (percentage >= 80) {
+                    cat = 'Excellent';
+                    col = 'text-green-600';
+                    recs = ['Votre bien-être est exceptionnel !', 'Continuez à maintenir cet équilibre'];
+                } else if (percentage >= 65) {
+                    cat = 'Bon';
+                    col = 'text-blue-600';
+                    recs = ['Bon niveau de bien-être', 'Quelques améliorations possibles'];
+                } else if (percentage >= 50) {
+                    cat = 'Moyen';
+                    col = 'text-yellow-600';
+                    recs = ['Améliorez votre bien-être', 'Réduisez le stress', 'Augmentez activités relaxantes'];
+                } else {
+                    cat = 'Faible';
+                    col = 'text-orange-600';
+                    recs = ['Consultez un professionnel', 'Prenez soin de vous', 'Priorité bien-être mental'];
+                }
+
+                setWellbeingScore({
+                    score: percentage,
+                    category: cat,
+                    color: col,
+                    recommendations: recs
+                });
+
+                setStep('final-result');
+            };
 
             const handleSubmit = () => {
                 if (formData.age && formData.weight && formData.height) {
@@ -196,6 +276,306 @@
                 window.open(urls[platform], '_blank', 'width=600,height=400');
             };
 
+            // AJOUT : PAGE RÉSULTAT FINAL (avec les 2 scores)
+            if (step === 'final-result' && result && wellbeingScore) {
+                return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
+                    React.createElement('div', { className: 'max-w-4xl mx-auto' },
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
+                        ),
+                        
+                        React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8 mb-6' },
+                            React.createElement('div', { className: 'text-center mb-8' },
+                                React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-2' }, 'Votre Bilan Complet'),
+                                React.createElement('p', { className: 'text-gray-600' }, 'Analyse complète : Âge biologique + Bien-être')
+                            ),
+
+                            React.createElement('div', { className: 'grid md:grid-cols-2 gap-6 mb-8' },
+                                React.createElement('div', { className: 'bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-8 text-center' },
+                                    React.createElement('h2', { className: 'text-xl font-bold text-gray-800 mb-4' }, 'Âge Biologique'),
+                                    React.createElement('p', { className: `text-6xl font-bold ${result.color}` }, result.bioAge),
+                                    React.createElement('p', { className: 'text-sm text-gray-500 mt-1' }, 'ans'),
+                                    React.createElement('p', { className: `font-bold mt-4 ${result.color}` }, result.category)
+                                ),
+                                React.createElement('div', { className: 'bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-8 text-center' },
+                                    React.createElement('h2', { className: 'text-xl font-bold text-gray-800 mb-4' }, 'Score Bien-être'),
+                                    React.createElement('p', { className: `text-6xl font-bold ${wellbeingScore.color}` }, wellbeingScore.score),
+                                    React.createElement('p', { className: 'text-sm text-gray-500 mt-1' }, '/ 100'),
+                                    React.createElement('p', { className: `font-bold mt-4 ${wellbeingScore.color}` }, wellbeingScore.category)
+                                )
+                            ),
+
+                            React.createElement('div', { className: 'bg-blue-50 rounded-xl p-6 mb-6' },
+                                React.createElement('h3', { className: 'text-xl font-bold text-gray-800 mb-4 flex items-center' },
+                                    React.createElement('i', { 'data-lucide': 'heart', className: 'w-6 h-6 mr-2 text-red-500' }),
+                                    'Recommandations Santé Physique'
+                                ),
+                                React.createElement('ul', { className: 'space-y-3' },
+                                    result.recommendations.map((rec, index) =>
+                                        React.createElement('li', { key: index, className: 'flex items-start' },
+                                            React.createElement('span', { className: 'text-blue-600 mr-2' }, '✓'),
+                                            React.createElement('span', { className: 'text-gray-700' }, rec)
+                                        )
+                                    )
+                                )
+                            ),
+
+                            React.createElement('div', { className: 'bg-purple-50 rounded-xl p-6 mb-8' },
+                                React.createElement('h3', { className: 'text-xl font-bold text-gray-800 mb-4 flex items-center' },
+                                    React.createElement('i', { 'data-lucide': 'brain', className: 'w-6 h-6 mr-2 text-purple-500' }),
+                                    'Recommandations Bien-être Mental'
+                                ),
+                                React.createElement('ul', { className: 'space-y-3' },
+                                    wellbeingScore.recommendations.map((rec, index) =>
+                                        React.createElement('li', { key: index, className: 'flex items-start' },
+                                            React.createElement('span', { className: 'text-purple-600 mr-2' }, '✓'),
+                                            React.createElement('span', { className: 'text-gray-700' }, rec)
+                                        )
+                                    )
+                                )
+                            ),
+
+                            React.createElement('div', { className: 'bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mb-8' },
+                                React.createElement('h3', { className: 'text-2xl font-bold text-gray-800 mb-2' }, '🎯 Produits Recommandés pour Vous'),
+                                React.createElement('div', { className: 'grid md:grid-cols-3 gap-4' },
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'activity', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Balance Connectée'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Suivez votre évolution quotidiennement'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/3WrLTGi",
+                                            target: '_blank',
+                                            className: 'block bg-blue-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-blue-700 transition' 
+                                        }, 'Voir sur Amazon →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    ),
+
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'utensils', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Oméga 3 Premium'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Santé cardiovasculaire et cérébrale'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/4o70Ida",
+                                            target: '_blank',
+                                            className: 'block bg-green-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-green-700 transition' 
+                                        }, 'Découvrir →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    ),
+
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'brain', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Écouteurs Sport'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Motivation pour vos entraînements'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/46XD3Fg",
+                                            target: '_blank',
+                                            className: 'block bg-purple-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-purple-700 transition' 
+                                        }, 'Commencer →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    )
+                                )
+                            ),
+
+                            React.createElement('div', { className: 'bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl p-6 text-white text-center' },
+                                React.createElement('i', { 'data-lucide': 'share-2', className: 'w-12 h-12 mx-auto mb-3' }),
+                                React.createElement('h3', { className: 'text-2xl font-bold mb-2' }, 'Partagez Votre Résultat !'),
+                                React.createElement('p', { className: 'mb-6 opacity-90' }, 'Défiez vos amis de calculer leur bilan santé complet'),
+                                React.createElement('div', { className: 'flex gap-4 justify-center flex-wrap' },
+                                    React.createElement('button', { 
+                                        onClick: () => share('facebook'),
+                                        className: 'bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition'
+                                    },
+                                        React.createElement('i', { 'data-lucide': 'facebook', className: 'w-5 h-5' }),
+                                        'Facebook'
+                                    ),
+                                    React.createElement('button', { 
+                                        onClick: () => share('twitter'),
+                                        className: 'bg-black hover:bg-gray-800 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition'
+                                    },
+                                        React.createElement('i', { 'data-lucide': 'twitter', className: 'w-5 h-5' }),
+                                        'X (Twitter)'
+                                    ),
+                                    React.createElement('button', { 
+                                        onClick: () => share('whatsapp'),
+                                        className: 'bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition'
+                                    },
+                                        React.createElement('i', { 'data-lucide': 'message-circle', className: 'w-5 h-5' }),
+                                        'WhatsApp'
+                                    )
+                                )
+                            ),
+
+                            React.createElement('button', {
+                                onClick: () => setStep('form'),
+                                className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
+                            }, '← Refaire le Test')
+                        ),
+
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
+                        ),
+
+                        React.createElement('div', { className: 'bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded' },
+                            React.createElement('div', { className: 'flex' },
+                                React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-5 h-5 text-yellow-600 mr-2 flex-shrink-0' }),
+                                React.createElement('p', { className: 'text-sm text-yellow-800' },
+                                    React.createElement('strong', null, 'Important : '),
+                                    'Ce calculateur est à titre informatif uniquement et ne remplace pas un avis médical professionnel. Consultez toujours un professionnel de santé pour des conseils personnalisés.'
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+            
+            // AJOUT : PAGE QUESTIONS BIEN-ÊTRE
+            if (step === 'wellbeing') {
+                return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 py-8 px-4' },
+                    React.createElement('div', { className: 'max-w-3xl mx-auto' },
+                        React.createElement('div', { className: 'text-center mb-8' },
+                            React.createElement('div', { className: 'inline-block bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-2xl mb-4' },
+                                React.createElement('i', { 'data-lucide': 'heart', className: 'w-16 h-16 text-white' })
+                            ),
+                            React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-4' }, 'Évaluons Votre Bien-être'),
+                            React.createElement('p', { className: 'text-xl text-gray-600' }, 'Quelques questions sur votre santé mentale et émotionnelle')
+                        ),
+
+                        React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8' },
+                            React.createElement('div', { className: 'mb-6' },
+                                React.createElement('h2', { className: 'text-2xl font-bold text-gray-800 mb-6 flex items-center' },
+                                    React.createElement('span', { className: 'bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3' }, '1'),
+                                    'Santé Mentale'
+                                ),
+                                
+                                React.createElement('div', { className: 'space-y-6' },
+                                    React.createElement('div', null,
+                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Comment évaluez-vous votre santé mentale générale ?'),
+                                        React.createElement('input', {
+                                            type: 'range',
+                                            name: 'mentalHealth',
+                                            min: '1',
+                                            max: '5',
+                                            value: wellbeingData.mentalHealth,
+                                            onChange: handleWellbeingChange,
+                                            className: 'w-full'
+                                        }),
+                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
+                                            React.createElement('span', null, 'Mauvaise'),
+                                            React.createElement('span', null, 'Excellente')
+                                        )
+                                    ),
+
+                                    React.createElement('div', null,
+                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Niveau d\'anxiété quotidien'),
+                                        React.createElement('input', {
+                                            type: 'range',
+                                            name: 'anxiety',
+                                            min: '1',
+                                            max: '5',
+                                            value: wellbeingData.anxiety,
+                                            onChange: handleWellbeingChange,
+                                            className: 'w-full'
+                                        }),
+                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
+                                            React.createElement('span', null, 'Faible'),
+                                            React.createElement('span', null, 'Élevé')
+                                        )
+                                    ),
+
+                                    React.createElement('div', null,
+                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Qualité de vos relations sociales'),
+                                        React.createElement('input', {
+                                            type: 'range',
+                                            name: 'socialConnections',
+                                            min: '1',
+                                            max: '5',
+                                            value: wellbeingData.socialConnections,
+                                            onChange: handleWellbeingChange,
+                                            className: 'w-full'
+                                        })
+                                    ),
+
+                                    React.createElement('div', null,
+                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Équilibre vie professionnelle / personnelle'),
+                                        React.createElement('input', {
+                                            type: 'range',
+                                            name: 'workLifeBalance',
+                                            min: '1',
+                                            max: '5',
+                                            value: wellbeingData.workLifeBalance,
+                                            onChange: handleWellbeingChange,
+                                            className: 'w-full'
+                                        })
+                                    )
+                                )
+                            ),
+
+                            React.createElement('div', { className: 'mb-8' },
+                                React.createElement('h2', { className: 'text-2xl font-bold text-gray-800 mb-6 flex items-center' },
+                                    React.createElement('span', { className: 'bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3' }, '2'),
+                                    'Nutrition'
+                                ),
+                                
+                                React.createElement('div', { className: 'space-y-6' },
+                                    React.createElement('div', null,
+                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Consommation d\'eau (verres/jour)'),
+                                        React.createElement('input', {
+                                            type: 'range',
+                                            name: 'waterIntake',
+                                            min: '1',
+                                            max: '5',
+                                            value: wellbeingData.waterIntake,
+                                            onChange: handleWellbeingChange,
+                                            className: 'w-full'
+                                        })
+                                    ),
+
+                                    React.createElement('div', null,
+                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Portions de fruits (par jour)'),
+                                        React.createElement('input', {
+                                            type: 'range',
+                                            name: 'fruits',
+                                            min: '1',
+                                            max: '5',
+                                            value: wellbeingData.fruits,
+                                            onChange: handleWellbeingChange,
+                                            className: 'w-full'
+                                        })
+                                    ),
+
+                                    React.createElement('div', null,
+                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Portions de légumes (par jour)'),
+                                        React.createElement('input', {
+                                            type: 'range',
+                                            name: 'vegetables',
+                                            min: '1',
+                                            max: '5',
+                                            value: wellbeingData.vegetables,
+                                            onChange: handleWellbeingChange,
+                                            className: 'w-full'
+                                        })
+                                    )
+                                )
+                            ),
+
+                            React.createElement('button', {
+                                onClick: calculateWellbeingScore,
+                                className: 'w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl font-bold py-4 rounded-xl transition transform hover:scale-105 shadow-lg'
+                            }, '🎯 Voir Mon Bilan Complet')
+                        )
+                    )
+                );
+            }
+
+            // PAGE RÉSULTAT (VOTRE CODE ORIGINAL + bouton continuer bien-être)
             if (step === 'result' && result) {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-4xl mx-auto' },
@@ -271,11 +651,23 @@
                                         React.createElement('li', { key: index, className: 'flex items-start' },
                                             React.createElement('span', { className: 'text-blue-600 mr-2' }, '✓'),
                                             React.createElement('span', { className: 'text-gray-700' }, rec)
-        
-                                                        )
+                                        )
                                     )
                                 )
                             ),
+
+                            // AJOUT : Invitation à continuer vers le bien-être
+                            React.createElement('div', { className: 'bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-6 text-center mb-6' },
+                                React.createElement('i', { 'data-lucide': 'heart', className: 'w-12 h-12 mx-auto text-purple-600 mb-3' }),
+                                React.createElement('h3', { className: 'text-2xl font-bold text-gray-800 mb-2' }, 'Découvrez votre Score de Bien-être !'),
+                                React.createElement('p', { className: 'text-gray-600 mb-4' }, 'Complétez votre analyse avec des questions sur votre santé mentale et émotionnelle')
+                            ),
+
+                            // AJOUT : Bouton continuer
+                            React.createElement('button', {
+                                onClick: () => setStep('wellbeing'),
+                                className: 'w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl font-bold py-4 rounded-xl transition transform hover:scale-105 shadow-lg mb-4'
+                            }, '✨ Continuer vers le Bien-être →'),
 
                             React.createElement('div', { className: 'bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mb-8' },
                                 React.createElement('h3', { className: 'text-xl font-bold text-gray-800 mb-2' }, '🎯 Produits Recommandés pour Vous'),
@@ -377,6 +769,7 @@
                 );
             }
 
+            // FORMULAIRE INITIAL (VOTRE CODE ORIGINAL - INCHANGÉ)
             return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4' },
                 React.createElement('div', { className: 'max-w-3xl mx-auto' },
                     React.createElement('div', { className: 'text-center mb-12' },
@@ -639,16 +1032,11 @@
         // Initialize Lucide icons
         lucide.createIcons();
     </script>
-    
-    <!-- Google Analytics - Remplacez G-XXXXXXXXX par votre ID Analytics -->
-    <!-- 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXX');
-    </script>
-    -->
 </body>
-</html>
+</html>                              
+
+                               
+                        
+                                               
+                    
+     
