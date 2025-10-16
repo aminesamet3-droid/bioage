@@ -1,0 +1,100 @@
+===========================================
+COMMANDES RAPIDES - DÉPLOIEMENT BIOAGE
+===========================================
+
+IMPORTANT: Remplacez [VOTRE-USERNAME] par votre nom d'utilisateur GitHub réel !
+
+===========================================
+ÉTAPE 1 : NAVIGUER VERS LE PROJET
+===========================================
+
+cd "C:\Users\Dell\Desktop\claudeprojects\bioage"
+
+
+===========================================
+ÉTAPE 2 : AJOUTER L'ORIGINE GITHUB
+===========================================
+
+git remote add origin https://github.com/[VOTRE-USERNAME]/bioage-website.git
+
+Exemple si votre username est "johnsmith" :
+git remote add origin https://github.com/johnsmith/bioage-website.git
+
+
+===========================================
+ÉTAPE 3 : VÉRIFIER L'ORIGINE
+===========================================
+
+git remote -v
+
+
+===========================================
+ÉTAPE 4 : RENOMMER LA BRANCHE EN MAIN
+===========================================
+
+git branch -M main
+
+
+===========================================
+ÉTAPE 5 : POUSSER LE CODE
+===========================================
+
+git push -u origin main
+
+Si demandé :
+- Username: [votre-username-github]
+- Password: [votre-personal-access-token]
+
+Pour créer un token :
+https://github.com/settings/tokens → Generate new token (classic)
+Cocher : repo (toute la section)
+
+
+===========================================
+COMMANDES POUR MISES À JOUR FUTURES
+===========================================
+
+Après avoir modifié des fichiers :
+
+git add .
+git commit -m "Description de la modification"
+git push
+
+Netlify déploiera automatiquement en 30-60 secondes.
+
+
+===========================================
+VÉRIFICATIONS APRÈS PUSH
+===========================================
+
+1. Vérifier sur GitHub :
+   https://github.com/[VOTRE-USERNAME]/bioage-website
+
+2. Vous devriez voir 115 fichiers
+
+
+===========================================
+LIENS UTILES
+===========================================
+
+GitHub :
+- Créer dépôt : https://github.com/new
+- Créer token : https://github.com/settings/tokens
+
+Netlify :
+- S'inscrire : https://app.netlify.com/signup
+- Dashboard : https://app.netlify.com/
+
+Vérifications :
+- DNS : https://dnschecker.org/#A/agebiologique.eu
+- Sécurité : https://securityheaders.com/
+- Search Console : https://search.google.com/search-console
+
+
+===========================================
+SUPPORT
+===========================================
+
+En cas de problème, consulter :
+- INSTRUCTIONS_GITHUB_NETLIFY.md (guide détaillé)
+- DEPLOIEMENT_NETLIFY.md (guide complet)
