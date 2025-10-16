@@ -9,28 +9,6 @@
   gtag('js', new Date());
   gtag('config', 'G-E4MKJ0DYER');
 </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9253381108126567"
-     crossorigin="anonymous"></script>
-    <script async src="https://fundingchoicesmessages.google.com/i/pub-9253381108126567?ers=1"></script>
-<script>
-  (function() {
-    function signalGooglefcPresent() {
-      if (!window.frames['googlefcPresent']) {
-        if (document.body) {
-          const iframe = document.createElement('iframe');
-          iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
-          iframe.style.display = 'none';
-          iframe.name = 'googlefcPresent';
-          document.body.appendChild(iframe);
-        } else {
-          setTimeout(signalGooglefcPresent, 0);
-        }
-      }
-    }
-    signalGooglefcPresent();
-  })();
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="msvalidate.01" content="15F14A246BD98E9EDFA7F487B34767DE" />
@@ -58,13 +36,7 @@
     </style>
 </head>
 <body>
-    <!-- ESPACE ADSENSE HAUT -->
-    <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
-    
     <div id="root"></div>
-    
-    <!-- ESPACE ADSENSE BAS -->
-    <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
     
     <script type="text/babel">
         const { useState } = React;
@@ -303,11 +275,6 @@
             if (step === 'final-result' && result && wellbeingScore) {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-4xl mx-auto' },
-                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
-                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
-                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
-                        ),
-                        
                         React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8 mb-6' },
                             React.createElement('div', { className: 'text-center mb-8' },
                                 React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-2' }, 'Votre Bilan Complet'),
@@ -392,11 +359,6 @@
                                 onClick: () => setStep('form'),
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
-                        ),
-
-                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
-                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
-                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                         ),
 
                         React.createElement('div', { className: 'bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded' },
@@ -555,11 +517,6 @@
             if (step === 'result' && result) {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-4xl mx-auto' },
-                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
-                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
-                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
-                        ),
-                        
                         React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8 mb-6' },
                             React.createElement('div', { className: 'text-center mb-8' },
                                 React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-2' }, 'Votre Résultat'),
@@ -645,54 +602,7 @@
                                 className: 'w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl font-bold py-4 rounded-xl transition transform hover:scale-105 shadow-lg mb-4'
                             }, '✨ Continuer vers le Bien-être →'),
 
-                            React.createElement('div', { className: 'bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mb-8' },
-                                React.createElement('h3', { className: 'text-xl font-bold text-gray-800 mb-2' }, '🎯 Produits Recommandés pour Vous'),
-                                React.createElement('div', { className: 'grid md:grid-cols-3 gap-4' },
-                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
-                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
-                                            React.createElement('i', { 'data-lucide': 'activity', className: 'w-12 h-12 text-gray-400' })
-                                        ),
-                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Balance Connectée'),
-                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Suivez votre évolution quotidiennement'),
-                                        React.createElement('a', { 
-                                            href:"https://amzn.to/3WrLTGi",
-                                            target: '_blank',
-                                            className: 'block bg-blue-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-blue-700 transition' 
-                                        }, 'Voir sur Amazon →'),
-                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
-                                    ),
-
-                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
-                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
-                                            React.createElement('i', { 'data-lucide': 'utensils', className: 'w-12 h-12 text-gray-400' })
-                                        ),
-                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Oméga 3 Premium'),
-                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Santé cardiovasculaire et cérébrale'),
-                                        React.createElement('a', { 
-                                            href:"https://amzn.to/4o70Ida",
-                                            target: '_blank',
-                                            className: 'block bg-green-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-green-700 transition' 
-                                        }, 'Découvrir →'),
-                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
-                                    ),
-
-                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
-                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
-                                            React.createElement('i', { 'data-lucide': 'brain', className: 'w-12 h-12 text-gray-400' })
-                                        ),
-                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Écouteurs Sport'),
-                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Motivation pour vos entraînements'),
-                                        React.createElement('a', { 
-                                            href:"https://amzn.to/46XD3Fg",
-                                            target: '_blank',
-                                            className: 'block bg-purple-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-purple-700 transition' 
-                                        }, 'Commencer →'),
-                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
-                                    )
-                                )
-                            ),
-
-                            React.createElement('div', { className: 'bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl p-6 text-white text-center' },
+                            React.createElement('div', { className: 'bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl p-6 text-white text-center mb-8' },
                                 React.createElement('i', { 'data-lucide': 'share-2', className: 'w-12 h-12 mx-auto mb-3' }),
                                 React.createElement('h3', { className: 'text-2xl font-bold mb-2' }, 'Partagez Votre Résultat !'),
                                 React.createElement('p', { className: 'mb-6 opacity-90' }, 'Défiez vos amis de calculer leur âge biologique'),
@@ -725,11 +635,6 @@
                                 onClick: () => setStep('form'),
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
-                        ),
-
-                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
-                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
-                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                         ),
 
                         React.createElement('div', { className: 'bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded' },
@@ -992,11 +897,6 @@
                         React.createElement('p', { className: 'text-center text-sm text-gray-500 mt-4' },
                             '✨ Résultat instantané • 100% gratuit • Partage avec tes amis'
                         )
-                    ),
-
-                    React.createElement('div', { className: 'mt-8 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
-                        React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
-                        React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                     )
                 )
             );
