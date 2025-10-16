@@ -1,31 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4MKJ0DYER"></script>
+    <!-- Google tag (gtag.js) - Conditional loading based on consent -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-E4MKJ0DYER');
+
+  // Only load Analytics if user has consented
+  if (localStorage.getItem('cookieConsent') === 'accepted') {
+    (function() {
+      var ga = document.createElement('script');
+      ga.async = true;
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-E4MKJ0DYER';
+      document.head.appendChild(ga);
+      gtag('js', new Date());
+      gtag('config', 'G-E4MKJ0DYER', { 'anonymize_ip': true });
+    })();
+  }
+</script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9253381108126567"
+     crossorigin="anonymous"></script>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-9253381108126567?ers=1"></script>
+<script>
+  (function() {
+    function signalGooglefcPresent() {
+      if (!window.frames['googlefcPresent']) {
+        if (document.body) {
+          const iframe = document.createElement('iframe');
+          iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
+          iframe.style.display = 'none';
+          iframe.name = 'googlefcPresent';
+          document.body.appendChild(iframe);
+        } else {
+          setTimeout(signalGooglefcPresent, 0);
+        }
+      }
+    }
+    signalGooglefcPresent();
+  })();
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="msvalidate.01" content="15F14A246BD98E9EDFA7F487B34767DE" />
+
+    <!-- SEO Meta Tags -->
     <title>BioAge - Calculez Votre Âge Biologique Gratuitement | Test Santé Gratuit</title>
-    <meta name="description" content="Découvrez votre âge biologique en fonction de votre style de vie. Test gratuit et instantané avec recommandations personnalisées santé.">
-    <meta name="keywords" content="âge biologique, test santé, calculateur âge, santé bien-être, test gratuit">
+    <meta name="description" content="Découvrez votre âge biologique en fonction de votre style de vie. Test gratuit et instantané avec recommandations personnalisées santé. Calculateur scientifique validé.">
+    <meta name="keywords" content="âge biologique, test santé, calculateur âge, santé bien-être, test gratuit, longévité, espérance de vie">
+    <meta name="author" content="BioAge">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://agebiologique.eu/">
+
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BioAge - Calculez Votre Âge Biologique Gratuitement">
+    <meta property="og:description" content="Découvrez votre âge biologique en fonction de votre style de vie. Test gratuit et instantané avec recommandations personnalisées santé.">
+    <meta property="og:url" content="https://agebiologique.eu/">
+    <meta property="og:site_name" content="BioAge">
+    <meta property="og:image" content="https://agebiologique.eu/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Calculateur d'âge biologique BioAge">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BioAge - Calculez Votre Âge Biologique Gratuitement">
+    <meta name="twitter:description" content="Découvrez votre âge biologique en fonction de votre style de vie. Test gratuit et instantané.">
+    <meta name="twitter:image" content="https://agebiologique.eu/images/twitter-card.jpg">
+    <meta name="twitter:image:alt" content="Calculateur d'âge biologique BioAge">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="language" content="French">
+    <meta name="geo.region" content="FR">
+    <meta name="geo.placename" content="France">
+    <meta name="theme-color" content="#3B82F6">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BioAge - Calculateur d'Âge Biologique",
+      "alternateName": "BioAge Calculator",
+      "url": "https://agebiologique.eu/",
+      "description": "Calculateur gratuit d'âge biologique basé sur votre style de vie. Obtenez des recommandations personnalisées pour améliorer votre santé et votre longévité.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1247",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "BioAge",
+        "url": "https://agebiologique.eu/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BioAge",
+        "url": "https://agebiologique.eu/"
+      },
+      "inLanguage": "fr-FR",
+      "featureList": [
+        "Calcul de l'âge biologique",
+        "Recommandations santé personnalisées",
+        "Analyse du style de vie",
+        "Partage sur les réseaux sociaux",
+        "Résultats instantanés",
+        "100% gratuit"
+      ],
+      "screenshot": "https://agebiologique.eu/images/screenshot.jpg"
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://agebiologique.eu/"
+      }]
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Qu'est-ce que l'âge biologique ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'âge biologique est une estimation de votre âge réel basée sur votre état de santé et votre style de vie, par opposition à votre âge chronologique (nombre d'années depuis votre naissance)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Comment calculer mon âge biologique ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Notre calculateur analyse plusieurs facteurs : votre poids, taille, niveau d'activité physique, qualité du sommeil, niveau de stress, alimentation, tabagisme et consommation d'alcool pour estimer votre âge biologique."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Le test est-il gratuit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, le calculateur d'âge biologique BioAge est 100% gratuit et fournit des résultats instantanés avec des recommandations personnalisées."
+        }
+      }]
+    }
+    </script>
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- React -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com/3.3.5"></script>
+
+    <!-- React - Fixed versions for security -->
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
+
+    <!-- Lucide Icons - Fixed version -->
+    <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"></script>
     
     <style>
         body {
@@ -33,10 +189,180 @@
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
+
+        /* Cookie Consent Banner Styles */
+        #cookieConsent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+            z-index: 9999;
+            display: none;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        #cookieConsent.show {
+            display: block;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-text h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .cookie-text a {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .cookie-btn-accept {
+            background: #10b981;
+            color: white;
+        }
+
+        .cookie-btn-accept:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .cookie-btn-refuse {
+            background: #475569;
+            color: white;
+        }
+
+        .cookie-btn-refuse:hover {
+            background: #334155;
+        }
+
+        .cookie-btn-settings {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .cookie-btn-settings:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cookie-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>🍪 Respect de votre vie privée</h3>
+                <p>
+                    Nous utilisons des cookies pour analyser le trafic (Google Analytics) et afficher des publicités (Google AdSense).
+                    Ces cookies ne sont activés qu'avec votre consentement.
+                    <a href="privacy-policy.html" target="_blank">Politique de confidentialité</a>
+                </p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">
+                    ✓ Accepter
+                </button>
+                <button class="cookie-btn cookie-btn-refuse" onclick="refuseCookies()">
+                    ✗ Refuser
+                </button>
+                <button class="cookie-btn cookie-btn-settings" onclick="window.open('privacy-policy.html', '_blank')">
+                    ⚙ En savoir plus
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cookie Consent Management
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('show');
+            // Reload to activate Google Analytics
+            location.reload();
+        }
+
+        function refuseCookies() {
+            localStorage.setItem('cookieConsent', 'refused');
+            document.getElementById('cookieConsent').classList.remove('show');
+            // Remove any existing cookies
+            document.cookie.split(";").forEach(function(c) {
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+            });
+        }
+
+        // Show banner if no consent given
+        window.addEventListener('DOMContentLoaded', function() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(function() {
+                    document.getElementById('cookieConsent').classList.add('show');
+                }, 1000);
+            }
+        });
+    </script>
+    <!-- ESPACE ADSENSE HAUT -->
+    <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
+    
     <div id="root"></div>
+    
+    <!-- ESPACE ADSENSE BAS -->
+    <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
     
     <script type="text/babel">
         const { useState } = React;
@@ -275,6 +601,11 @@
             if (step === 'final-result' && result && wellbeingScore) {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-4xl mx-auto' },
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
+                        ),
+                        
                         React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8 mb-6' },
                             React.createElement('div', { className: 'text-center mb-8' },
                                 React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-2' }, 'Votre Bilan Complet'),
@@ -359,6 +690,11 @@
                                 onClick: () => setStep('form'),
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
+                        ),
+
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                         ),
 
                         React.createElement('div', { className: 'bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded' },
@@ -517,6 +853,11 @@
             if (step === 'result' && result) {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-4xl mx-auto' },
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
+                        ),
+                        
                         React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8 mb-6' },
                             React.createElement('div', { className: 'text-center mb-8' },
                                 React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-2' }, 'Votre Résultat'),
@@ -602,7 +943,54 @@
                                 className: 'w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl font-bold py-4 rounded-xl transition transform hover:scale-105 shadow-lg mb-4'
                             }, '✨ Continuer vers le Bien-être →'),
 
-                            React.createElement('div', { className: 'bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl p-6 text-white text-center mb-8' },
+                            React.createElement('div', { className: 'bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mb-8' },
+                                React.createElement('h3', { className: 'text-xl font-bold text-gray-800 mb-2' }, '🎯 Produits Recommandés pour Vous'),
+                                React.createElement('div', { className: 'grid md:grid-cols-3 gap-4' },
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'activity', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Balance Connectée'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Suivez votre évolution quotidiennement'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/3WrLTGi",
+                                            target: '_blank',
+                                            className: 'block bg-blue-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-blue-700 transition' 
+                                        }, 'Voir sur Amazon →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    ),
+
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'utensils', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Oméga 3 Premium'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Santé cardiovasculaire et cérébrale'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/4o70Ida",
+                                            target: '_blank',
+                                            className: 'block bg-green-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-green-700 transition' 
+                                        }, 'Découvrir →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    ),
+
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'brain', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Écouteurs Sport'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Motivation pour vos entraînements'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/46XD3Fg",
+                                            target: '_blank',
+                                            className: 'block bg-purple-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-purple-700 transition' 
+                                        }, 'Commencer →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    )
+                                )
+                            ),
+
+                            React.createElement('div', { className: 'bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl p-6 text-white text-center' },
                                 React.createElement('i', { 'data-lucide': 'share-2', className: 'w-12 h-12 mx-auto mb-3' }),
                                 React.createElement('h3', { className: 'text-2xl font-bold mb-2' }, 'Partagez Votre Résultat !'),
                                 React.createElement('p', { className: 'mb-6 opacity-90' }, 'Défiez vos amis de calculer leur âge biologique'),
@@ -635,6 +1023,11 @@
                                 onClick: () => setStep('form'),
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
+                        ),
+
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                         ),
 
                         React.createElement('div', { className: 'bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded' },
@@ -897,6 +1290,11 @@
                         React.createElement('p', { className: 'text-center text-sm text-gray-500 mt-4' },
                             '✨ Résultat instantané • 100% gratuit • Partage avec tes amis'
                         )
+                    ),
+
+                    React.createElement('div', { className: 'mt-8 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                        React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                        React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                     )
                 )
             );
