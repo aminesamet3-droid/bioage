@@ -76,6 +76,10 @@
     <meta name="geo.placename" content="France">
     <meta name="theme-color" content="#3B82F6">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://unpkg.com">
@@ -175,6 +179,38 @@
           "text": "Oui, le calculateur d'âge biologique BioAge est 100% gratuit et fournit des résultats instantanés avec des recommandations personnalisées."
         }
       }]
+    }
+    </script>
+
+    <!-- MedicalWebPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Calculateur d'Âge Biologique BioAge",
+      "description": "Outil d'évaluation de l'âge biologique basé sur le mode de vie et facteurs de santé",
+      "url": "https://agebiologique.eu/",
+      "inLanguage": "fr-FR",
+      "datePublished": "2024-01-01",
+      "dateModified": "2025-10-17",
+      "about": {
+        "@type": "MedicalCondition",
+        "name": "Santé et Bien-être"
+      },
+      "audience": {
+        "@type": "PeopleAudience",
+        "suggestedMinAge": 18,
+        "suggestedMaxAge": 100
+      },
+      "medicalAudience": {
+        "@type": "Patient"
+      },
+      "disclaimer": "Ce calculateur est à titre informatif uniquement et ne remplace pas un avis médical professionnel. Consultez toujours un professionnel de santé pour des conseils personnalisés.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BioAge",
+        "url": "https://agebiologique.eu/"
+      }
     }
     </script>
     
@@ -772,7 +808,12 @@
                                             max: '5',
                                             value: wellbeingData.mentalHealth,
                                             onChange: handleWellbeingChange,
-                                            className: 'w-full'
+                                            className: 'w-full',
+                                            'aria-label': 'Évaluation de la santé mentale générale',
+                                            'aria-valuemin': '1',
+                                            'aria-valuemax': '5',
+                                            'aria-valuenow': wellbeingData.mentalHealth,
+                                            'aria-valuetext': wellbeingData.mentalHealth === '1' ? 'Mauvaise' : wellbeingData.mentalHealth === '2' ? 'Passable' : wellbeingData.mentalHealth === '3' ? 'Moyenne' : wellbeingData.mentalHealth === '4' ? 'Bonne' : 'Excellente'
                                         }),
                                         React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
                                             React.createElement('span', null, 'Mauvaise'),
@@ -789,7 +830,12 @@
                                             max: '5',
                                             value: wellbeingData.anxiety,
                                             onChange: handleWellbeingChange,
-                                            className: 'w-full'
+                                            className: 'w-full',
+                                            'aria-label': 'Niveau d\'anxiété quotidien',
+                                            'aria-valuemin': '1',
+                                            'aria-valuemax': '5',
+                                            'aria-valuenow': wellbeingData.anxiety,
+                                            'aria-valuetext': wellbeingData.anxiety === '1' ? 'Très faible' : wellbeingData.anxiety === '2' ? 'Faible' : wellbeingData.anxiety === '3' ? 'Moyen' : wellbeingData.anxiety === '4' ? 'Élevé' : 'Très élevé'
                                         }),
                                         React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
                                             React.createElement('span', null, 'Faible'),
@@ -806,7 +852,12 @@
                                             max: '5',
                                             value: wellbeingData.socialConnections,
                                             onChange: handleWellbeingChange,
-                                            className: 'w-full'
+                                            className: 'w-full',
+                                            'aria-label': 'Qualité des relations sociales',
+                                            'aria-valuemin': '1',
+                                            'aria-valuemax': '5',
+                                            'aria-valuenow': wellbeingData.socialConnections,
+                                            'aria-valuetext': 'Niveau ' + wellbeingData.socialConnections + ' sur 5'
                                         })
                                     ),
 
@@ -819,7 +870,12 @@
                                             max: '5',
                                             value: wellbeingData.workLifeBalance,
                                             onChange: handleWellbeingChange,
-                                            className: 'w-full'
+                                            className: 'w-full',
+                                            'aria-label': 'Équilibre vie professionnelle et personnelle',
+                                            'aria-valuemin': '1',
+                                            'aria-valuemax': '5',
+                                            'aria-valuenow': wellbeingData.workLifeBalance,
+                                            'aria-valuetext': 'Niveau ' + wellbeingData.workLifeBalance + ' sur 5'
                                         })
                                     )
                                 )
@@ -841,7 +897,12 @@
                                             max: '5',
                                             value: wellbeingData.waterIntake,
                                             onChange: handleWellbeingChange,
-                                            className: 'w-full'
+                                            className: 'w-full',
+                                            'aria-label': 'Consommation d\'eau quotidienne',
+                                            'aria-valuemin': '1',
+                                            'aria-valuemax': '5',
+                                            'aria-valuenow': wellbeingData.waterIntake,
+                                            'aria-valuetext': wellbeingData.waterIntake + ' verres par jour'
                                         })
                                     ),
 
@@ -854,7 +915,12 @@
                                             max: '5',
                                             value: wellbeingData.fruits,
                                             onChange: handleWellbeingChange,
-                                            className: 'w-full'
+                                            className: 'w-full',
+                                            'aria-label': 'Portions de fruits par jour',
+                                            'aria-valuemin': '1',
+                                            'aria-valuemax': '5',
+                                            'aria-valuenow': wellbeingData.fruits,
+                                            'aria-valuetext': wellbeingData.fruits + ' portions de fruits'
                                         })
                                     ),
 
@@ -867,7 +933,12 @@
                                             max: '5',
                                             value: wellbeingData.vegetables,
                                             onChange: handleWellbeingChange,
-                                            className: 'w-full'
+                                            className: 'w-full',
+                                            'aria-label': 'Portions de légumes par jour',
+                                            'aria-valuemin': '1',
+                                            'aria-valuemax': '5',
+                                            'aria-valuenow': wellbeingData.vegetables,
+                                            'aria-valuetext': wellbeingData.vegetables + ' portions de légumes'
                                         })
                                     )
                                 )
@@ -977,6 +1048,13 @@
                             }, '✨ Continuer vers le Bien-être →'),
 
                             React.createElement('div', { className: 'bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mb-8' },
+                                React.createElement('div', { className: 'bg-blue-100 border border-blue-300 rounded-lg p-3 mb-4 flex items-start' },
+                                    React.createElement('i', { 'data-lucide': 'info', className: 'w-4 h-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5' }),
+                                    React.createElement('p', { className: 'text-xs text-blue-800' },
+                                        React.createElement('strong', null, 'Transparence : '),
+                                        'Les liens ci-dessous sont des liens affiliés Amazon. Si vous achetez via ces liens, nous recevons une petite commission sans frais supplémentaires pour vous. Cela nous aide à maintenir ce service gratuit.'
+                                    )
+                                ),
                                 React.createElement('h3', { className: 'text-xl font-bold text-gray-800 mb-2' }, '🎯 Produits Recommandés pour Vous'),
                                 React.createElement('div', { className: 'grid md:grid-cols-3 gap-4' },
                                     React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
@@ -985,10 +1063,12 @@
                                         ),
                                         React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Balance Connectée'),
                                         React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Suivez votre évolution quotidiennement'),
-                                        React.createElement('a', { 
+                                        React.createElement('a', {
                                             href:"https://amzn.to/3WrLTGi",
                                             target: '_blank',
-                                            className: 'block bg-blue-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-blue-700 transition' 
+                                            rel: 'noopener noreferrer sponsored',
+                                            className: 'block bg-blue-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-blue-700 transition',
+                                            'aria-label': 'Voir Balance Connectée sur Amazon (lien affilié)'
                                         }, 'Voir sur Amazon →'),
                                         React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
                                     ),
@@ -999,10 +1079,12 @@
                                         ),
                                         React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Oméga 3 Premium'),
                                         React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Santé cardiovasculaire et cérébrale'),
-                                        React.createElement('a', { 
+                                        React.createElement('a', {
                                             href:"https://amzn.to/4o70Ida",
                                             target: '_blank',
-                                            className: 'block bg-green-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-green-700 transition' 
+                                            rel: 'noopener noreferrer sponsored',
+                                            className: 'block bg-green-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-green-700 transition',
+                                            'aria-label': 'Découvrir Oméga 3 Premium sur Amazon (lien affilié)'
                                         }, 'Découvrir →'),
                                         React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
                                     ),
@@ -1013,10 +1095,12 @@
                                         ),
                                         React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Écouteurs Sport'),
                                         React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Motivation pour vos entraînements'),
-                                        React.createElement('a', { 
+                                        React.createElement('a', {
                                             href:"https://amzn.to/46XD3Fg",
                                             target: '_blank',
-                                            className: 'block bg-purple-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-purple-700 transition' 
+                                            rel: 'noopener noreferrer sponsored',
+                                            className: 'block bg-purple-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-purple-700 transition',
+                                            'aria-label': 'Commencer avec Écouteurs Sport sur Amazon (lien affilié)'
                                         }, 'Commencer →'),
                                         React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
                                     )
