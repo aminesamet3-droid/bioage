@@ -590,6 +590,11 @@
                     bmi: bmi.toFixed(1)
                 });
                 setStep('result');
+
+                // Scroll to top to show results
+                setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
             };
             
             // AJOUT : Fonction de calcul du score bien-être
@@ -650,6 +655,11 @@
                 });
 
                 setStep('final-result');
+
+                // Scroll to top to show results
+                setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
             };
 
             const handleSubmit = () => {
