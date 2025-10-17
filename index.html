@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
     <!-- Google tag (gtag.js) - Conditional loading based on consent -->
 <script>
@@ -232,6 +232,38 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
 
+        /* Skip Link for Keyboard Navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #3B82F6;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 0 0 4px 0;
+            z-index: 10000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Enhanced Focus Styles for Accessibility */
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #3B82F6;
+            outline-offset: 2px;
+        }
+
+        input[type="range"]:focus-visible {
+            outline: 2px solid #3B82F6;
+            outline-offset: 4px;
+        }
+
         /* Cookie Consent Banner Styles */
         #cookieConsent {
             position: fixed;
@@ -398,6 +430,9 @@
             }
         });
     </script>
+    <!-- Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <!-- Noscript Fallback -->
     <noscript>
         <div style="background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; padding: 50px 20px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -428,7 +463,9 @@
     <!-- ESPACE ADSENSE HAUT -->
     <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
 
-    <div id="root"></div>
+    <main id="main-content" role="main">
+        <div id="root"></div>
+    </main>
     
     <!-- ESPACE ADSENSE BAS -->
     <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
