@@ -4,66 +4,66 @@
   <!-- Page principale -->
   <url>
     <loc>https://agebiologique.eu/</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-10-18T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Articles de blog (20) -->
-  <url><loc>https://agebiologique.eu/blog/comment-calculer-age-biologique.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/tests-age-biologique-fiables.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/age-biologique-vs-chronologique.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/rajeunir-age-biologique.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/facteurs-vieillissement.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/alimentation-anti-age.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/sport-age-biologique.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/sommeil-vieillissement.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/stress-age-biologique.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/calculateur-age-biologique-gratuit.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://agebiologique.eu/blog/jeunesse-biologique.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/vieillissement-cellulaire.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/telomeres-longevite.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/antioxydants-anti-age.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/mode-vie-sain.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/biomarqueurs-vieillissement.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/supplements-anti-age.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/meditation-longevite.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/hormones-age-biologique.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://agebiologique.eu/blog/calcul-esperance-vie.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/comment-calculer-age-biologique.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/tests-age-biologique-fiables.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/age-biologique-vs-chronologique.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/rajeunir-age-biologique.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/facteurs-vieillissement.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/alimentation-anti-age.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/sport-age-biologique.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/sommeil-vieillissement.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/stress-age-biologique.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/calculateur-age-biologique-gratuit.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://agebiologique.eu/blog/jeunesse-biologique.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/vieillissement-cellulaire.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/telomeres-longevite.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/antioxydants-anti-age.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/mode-vie-sain.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/biomarqueurs-vieillissement.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/supplements-anti-age.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/meditation-longevite.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/hormones-age-biologique.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agebiologique.eu/blog/calcul-esperance-vie.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Pages villes (21) -->
-  <url><loc>https://agebiologique.eu/ville/age-biologique-paris.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-lyon.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-marseille.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-toulouse.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-nice.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-nantes.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-bordeaux.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-lille.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-strasbourg.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-rennes.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-montpellier.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-grenoble.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-dijon.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-angers.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-nimes.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-clermont-ferrand.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-tours.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-limoges.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-brest.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-amiens.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/ville/age-biologique-perpignan.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-paris.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-lyon.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-marseille.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-toulouse.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-nice.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-nantes.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-bordeaux.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-lille.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-strasbourg.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-rennes.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-montpellier.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-grenoble.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-dijon.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-angers.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-nimes.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-clermont-ferrand.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-tours.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-limoges.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-brest.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-amiens.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/ville/age-biologique-perpignan.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Pages thématiques (10) -->
-  <url><loc>https://agebiologique.eu/thematiques/age-biologique-30-ans.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/age-biologique-40-ans.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/age-biologique-50-ans.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/age-biologique-60-ans.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/age-biologique-femme.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/age-biologique-homme.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/rajeunir-10-ans.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/test-longevite.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/esperance-vie-france.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://agebiologique.eu/thematiques/calculer-esperance-vie.html</loc><lastmod>2025-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/age-biologique-30-ans.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/age-biologique-40-ans.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/age-biologique-50-ans.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/age-biologique-60-ans.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/age-biologique-femme.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/age-biologique-homme.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/rajeunir-10-ans.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/test-longevite.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/esperance-vie-france.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agebiologique.eu/thematiques/calculer-esperance-vie.html</loc><lastmod>2025-10-18T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>
