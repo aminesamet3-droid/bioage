@@ -1,35 +1,29 @@
+# Security Headers - Enterprise Level
 /*
-  # Security Headers for agebiologique.eu
+  # Content Security Policy - Prevent XSS attacks
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://unpkg.com https://cdn.tailwindcss.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
 
-  # Content Security Policy - Protects against XSS and injection attacks
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://fundingchoicesmessages.google.com https://unpkg.com https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net; frame-src 'self' https://www.google.com https://bid.g.doubleclick.net https://googleads.g.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests;
+  # HSTS - Force HTTPS for 2 years
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
-  # Prevent clickjacking attacks
-  X-Frame-Options: SAMEORIGIN
+  # Prevent clickjacking
+  X-Frame-Options: DENY
 
-  # Prevent MIME type sniffing
+  # Prevent MIME sniffing
   X-Content-Type-Options: nosniff
 
-  # Enable XSS protection in older browsers
+  # XSS Protection (legacy browsers)
   X-XSS-Protection: 1; mode=block
 
-  # Control referrer information
+  # Permissions Policy - Restrict browser features
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()
+
+  # Referrer Policy
   Referrer-Policy: strict-origin-when-cross-origin
 
-  # Restrict browser features and APIs
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=(self)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
 
-  # Force HTTPS for 1 year
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
-  # Cross-Origin policies
-  Cross-Origin-Embedder-Policy: require-corp
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Resource-Policy: same-origin
-
-  # Cache control for security
-  Cache-Control: public, max-age=3600, must-revalidate
-
-  # Server information hiding
-  X-Powered-By:
-  Server:
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8

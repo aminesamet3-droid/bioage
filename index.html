@@ -54,9 +54,17 @@
     <meta name="geo.placename" content="France">
     <meta name="theme-color" content="#3B82F6">
 
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
+
+    <!-- iOS Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BioAge">
 
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -409,6 +417,14 @@
     </script>
     <!-- Skip to Main Content Link -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- RGPD Data Privacy Notice -->
+    <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 12px 20px; text-align: center; font-size: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" role="alert" aria-live="polite">
+        <strong>🔒 Confidentialité de vos données :</strong>
+        Toutes les informations que vous saisissez (âge, poids, habitudes de vie) sont traitées <strong>localement dans votre navigateur</strong>.
+        Aucune donnée de santé n'est envoyée à nos serveurs ou partagée avec des tiers.
+        <a href="privacy-policy.html" style="color: white; text-decoration: underline; margin-left: 10px;" target="_blank" rel="noopener">En savoir plus</a>
+    </div>
 
     <!-- Noscript Fallback -->
     <noscript>
@@ -1389,9 +1405,80 @@
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(React.createElement(BioAgeCalculator));
-        
+
         // Initialize Lucide icons
         lucide.createIcons();
+    </script>
+
+    <!-- Service Worker Registration (PWA) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker enregistré:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('❌ Échec Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Enhanced Analytics - Track User Interactions -->
+    <script>
+        // Track calculator completion
+        function trackCalculation(bioAge, chronoAge, category) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'calculate_bio_age', {
+                    'event_category': 'Calculator',
+                    'event_label': category,
+                    'value': Math.abs(bioAge - chronoAge),
+                    'age_difference': bioAge - chronoAge,
+                    'result_category': category
+                });
+            }
+        }
+
+        // Track social shares
+        function trackShare(platform) {
+            if (typeof gtag === 'function') {
+                gtag('event', 'share', {
+                    'method': platform,
+                    'content_type': 'result',
+                    'event_category': 'Social'
+                });
+            }
+        }
+
+        // Track scroll depth
+        let maxScroll = 0;
+        window.addEventListener('scroll', () => {
+            const scrollPercent = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+            if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+                maxScroll = scrollPercent;
+                if (typeof gtag === 'function') {
+                    gtag('event', 'scroll', {
+                        'event_category': 'Engagement',
+                        'event_label': scrollPercent + '%',
+                        'value': scrollPercent
+                    });
+                }
+            }
+        }, { passive: true });
+
+        // Track time on page
+        let startTime = Date.now();
+        window.addEventListener('beforeunload', () => {
+            const timeSpent = Math.round((Date.now() - startTime) / 1000);
+            if (typeof gtag === 'function' && timeSpent > 10) {
+                gtag('event', 'timing_complete', {
+                    'name': 'time_on_page',
+                    'value': timeSpent,
+                    'event_category': 'Engagement'
+                });
+            }
+        });
     </script>
 </body>
 </html>                              
