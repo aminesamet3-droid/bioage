@@ -1,0 +1,19 @@
+# Security Policy - BioAge Security Team
+# RFC 9116 Compliant
+
+Contact: mailto:security@agebiologique.eu
+Contact: https://agebiologique.eu/security
+Expires: 2026-10-18T23:59:59.000Z
+Preferred-Languages: fr, en
+Canonical: https://agebiologique.eu/.well-known/security.txt
+
+# Vulnerability Disclosure Policy
+Policy: https://agebiologique.eu/security/disclosure-policy
+
+# Scope
+# In scope: *.agebiologique.eu
+# Out of scope: Third-party CDNs
+
+# Response Time: 48 hours critical, 1 week medium/low
+
+# Last Updated: 2025-10-18

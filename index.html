@@ -202,13 +202,25 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com/3.3.5"></script>
 
-    <!-- React - Fixed versions for security -->
-    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
+    <!-- React - Fixed versions with SRI (Supply Chain Protection) -->
+    <script
+        crossorigin="anonymous"
+        src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"
+        integrity="sha384-tMH8h3BGESGckSAVGZ82T9n90ztNXxvdwvdM6UoR56cYcf+0iGXBliJ29D+wZ/x8"></script>
+    <script
+        crossorigin="anonymous"
+        src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"
+        integrity="sha384-bm7MnzvK++ykSwVJ2tynSE5TRdN+xL418osEVF2DE/L/gfWHj91J2Sphe582B1Bh"></script>
+    <script
+        crossorigin="anonymous"
+        src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"
+        integrity="sha384-1qlE7MZPM2pHD/pBZCU/yB8UCP52RYL8bge/qNdfNBCWToySp8/M+JL2waXU4hjJ"></script>
 
-    <!-- Lucide Icons - Fixed version -->
-    <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"></script>
+    <!-- Lucide Icons - Fixed version with SRI -->
+    <script
+        crossorigin="anonymous"
+        src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"
+        integrity="sha384-43WP8IQ+5H0ncT+LNM4dZnu+hPINYmeOuNMhTvHfszzXdFjBEji77gkq7TyjQl/U"></script>
     
     <style>
         body {

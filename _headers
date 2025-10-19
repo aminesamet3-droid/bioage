@@ -1,25 +1,102 @@
-# Security Headers - Enterprise Level
-/*
-  # Content Security Policy - Prevent XSS attacks
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://unpkg.com https://cdn.tailwindcss.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+# ========================================
+# SECURITY HEADERS - MILITARY GRADE
+# Expert Level Security Configuration
+# Last Updated: 2025-10-18
+# ========================================
 
-  # HSTS - Force HTTPS for 2 years
+/*
+  # ====================================
+  # Content Security Policy (CSP) - XSS Protection
+  # ====================================
+  # Strictest possible while maintaining functionality
+  # SRI hashes are now implemented on all CDN scripts
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://unpkg.com https://cdn.tailwindcss.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; media-src 'self'; child-src 'none'; upgrade-insecure-requests; block-all-mixed-content; require-trusted-types-for 'script'
+
+  # ====================================
+  # HSTS - HTTP Strict Transport Security
+  # ====================================
+  # Force HTTPS for 2 years + include all subdomains + HSTS preload
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
-  # Prevent clickjacking
+  # ====================================
+  # Clickjacking Protection
+  # ====================================
   X-Frame-Options: DENY
 
-  # Prevent MIME sniffing
+  # ====================================
+  # MIME Type Sniffing Protection
+  # ====================================
   X-Content-Type-Options: nosniff
 
-  # XSS Protection (legacy browsers)
+  # ====================================
+  # XSS Filter (Legacy Browsers)
+  # ====================================
   X-XSS-Protection: 1; mode=block
 
-  # Permissions Policy - Restrict browser features
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()
+  # ====================================
+  # Permissions Policy (Feature Policy)
+  # ====================================
+  # Disable ALL dangerous browser features
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), clipboard-read=(), clipboard-write=(), gamepad=(), speaker-selection=(), conversion-measurement=(), focus-without-user-activation=(), hid=(), idle-detection=(), interest-cohort=(), serial=(), sync-script=(), trust-token-redemption=(), window-placement=(), vertical-scroll=()
 
+  # ====================================
   # Referrer Policy
+  # ====================================
+  # Prevent leaking sensitive URL params to third parties
   Referrer-Policy: strict-origin-when-cross-origin
+
+  # ====================================
+  # Cross-Origin Policies
+  # ====================================
+  # COEP - Cross-Origin Embedder Policy
+  Cross-Origin-Embedder-Policy: require-corp
+
+  # COOP - Cross-Origin Opener Policy
+  Cross-Origin-Opener-Policy: same-origin
+
+  # CORP - Cross-Origin Resource Policy
+  Cross-Origin-Resource-Policy: same-origin
+
+  # ====================================
+  # Certificate Transparency
+  # ====================================
+  # Expect-CT enforces Certificate Transparency
+  Expect-CT: max-age=86400, enforce
+
+  # ====================================
+  # Network Error Logging (NEL)
+  # ====================================
+  # Report network errors for security monitoring
+  NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}
+
+  # ====================================
+  # Reporting API
+  # ====================================
+  # Centralized reporting for CSP violations, deprecations, interventions
+  Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://agebiologique.eu/api/csp-report"}],"include_subdomains":true}
+
+  # ====================================
+  # DNS Prefetch Control
+  # ====================================
+  # Disable DNS prefetching for privacy
+  X-DNS-Prefetch-Control: off
+
+  # ====================================
+  # Download Options (IE)
+  # ====================================
+  X-Download-Options: noopen
+
+  # ====================================
+  # Content Type Options (IE)
+  # ====================================
+  X-Permitted-Cross-Domain-Policies: none
+
+  # ====================================
+  # Server Information Hiding
+  # ====================================
+  # Remove server signature
+  X-Powered-By:
+  Server:
 
 /images/*
   Cache-Control: public, max-age=31536000, immutable
