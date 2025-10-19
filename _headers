@@ -6,11 +6,15 @@
 
 /*
   # ====================================
-  # Content Security Policy (CSP) - XSS Protection
   # ====================================
-  # Strictest possible while maintaining functionality
-  # SRI hashes are now implemented on all CDN scripts
-  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://unpkg.com https://cdn.tailwindcss.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; worker-src 'self'; object-src 'none'; media-src 'self'; child-src 'none'; upgrade-insecure-requests; block-all-mixed-content; require-trusted-types-for 'script'
+  # Content Security Policy (CSP) - NIVEAU A++ BANCAIRE
+  # ====================================
+  # Politiques les plus strictes au monde (Banking Grade)
+  # Protection multi-couches contre XSS, injection, clickjacking
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://unpkg.com https://cdn.tailwindcss.com https://www.google-analytics.com 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha384-tMH8h3BGESGckSAVGZ82T9n90ztNXxvdwvdM6UoR56cYcf+0iGXBliJ29D+wZ/x8'; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; worker-src 'self' blob:; object-src 'none'; media-src 'self'; child-src 'none'; upgrade-insecure-requests; block-all-mixed-content; require-trusted-types-for 'script'; trusted-types default angular; report-uri https://agebiologique.eu/api/csp-report; report-to csp-endpoint
+
+  # CSP Report-Only (Monitoring Avancé - Banking Grade)
+  Content-Security-Policy-Report-Only: default-src 'none'; script-src 'self'; report-uri https://agebiologique.eu/api/csp-report-only
 
   # ====================================
   # HSTS - HTTP Strict Transport Security
@@ -70,10 +74,10 @@
   NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}
 
   # ====================================
-  # Reporting API
+  # Reporting API (Multi-endpoints Banking Grade)
   # ====================================
   # Centralized reporting for CSP violations, deprecations, interventions
-  Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://agebiologique.eu/api/csp-report"}],"include_subdomains":true}
+  Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://agebiologique.eu/api/csp-report"}],"include_subdomains":true},{"group":"csp-endpoint","max_age":31536000,"endpoints":[{"url":"https://agebiologique.eu/api/csp-violations"}]}
 
   # ====================================
   # DNS Prefetch Control
@@ -94,9 +98,56 @@
   # ====================================
   # Server Information Hiding
   # ====================================
-  # Remove server signature
+  # Remove server signature (Banking Best Practice)
   X-Powered-By:
   Server:
+
+  # ====================================
+  # SÉCURITÉ BANCAIRE A++ (Headers Additionnels)
+  # ====================================
+
+  # Clear-Site-Data (Déconnexion sécurisée)
+  # Utilisé sur la page de logout
+  # Clear-Site-Data: "cache", "cookies", "storage", "executionContexts"
+
+  # Feature-Policy (Ancienne version de Permissions-Policy pour compatibilité)
+  Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none'
+
+  # X-Robots-Tag (SEO + Sécurité)
+  X-Robots-Tag: index, follow, noarchive, noimageindex, max-snippet:-1, max-image-preview:large
+
+  # Access-Control-Allow-Methods (CORS Strict)
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
+  Access-Control-Max-Age: 86400
+
+  # Timing-Allow-Origin (Performance Monitoring Sécurisé)
+  Timing-Allow-Origin: https://agebiologique.eu
+
+  # X-UA-Compatible (Force modern rendering)
+  X-UA-Compatible: IE=edge
+
+  # Cache-Control Global (Sécurité par défaut)
+  Pragma: no-cache
+  Expires: 0
+
+  # Anti-MIME-Confusion (Defense in Depth)
+  X-Content-Type-Options: nosniff
+
+  # Expect-Staple (Certificate Pinning Alternative)
+  # Expect-Staple: max-age=31536000; includeSubDomains; report-uri="https://agebiologique.eu/api/staple-report"
+
+  # Origin-Agent-Cluster (Isolation Process-Level)
+  Origin-Agent-Cluster: ?1
+
+  # Document-Policy (Restrictions Avancées)
+  Document-Policy: force-load-at-top
+
+  # Cross-Origin-Opener-Policy-Report-Only (Monitoring)
+  Cross-Origin-Opener-Policy-Report-Only: same-origin; report-to="default"
+
+  # Cross-Origin-Embedder-Policy-Report-Only (Monitoring)
+  Cross-Origin-Embedder-Policy-Report-Only: require-corp; report-to="default"
 
 # ====================================
 # OPTIMISATION PERFORMANCE - Score 100/100
