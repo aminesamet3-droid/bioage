@@ -859,8 +859,8 @@
                             React.createElement('div', { className: 'flex' },
                                 React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-5 h-5 text-yellow-600 mr-2 flex-shrink-0' }),
                                 React.createElement('p', { className: 'text-sm text-yellow-800' },
-                                    React.createElement('strong', null, 'Important : '),
-                                    'Ce calculateur est à titre informatif uniquement et ne remplace pas un avis médical professionnel. Consultez toujours un professionnel de santé pour des conseils personnalisés.'
+                                    React.createElement('strong', null, '⚕️ Avertissement Médical : '),
+                                    'Ce calculateur fournit une estimation indicative basée sur des moyennes statistiques. Les résultats peuvent varier significativement selon votre génétique, votre historique médical et d\'autres facteurs individuels. Cet outil ne constitue ni un diagnostic médical, ni un avis professionnel, ni un dispositif médical certifié. Consultez toujours un professionnel de santé qualifié (médecin, diététicien) pour un bilan de santé complet et des conseils personnalisés adaptés à votre situation.'
                                 )
                             )
                         )
@@ -1171,8 +1171,8 @@
                             React.createElement('div', { className: 'flex' },
                                 React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-5 h-5 text-yellow-600 mr-2 flex-shrink-0' }),
                                 React.createElement('p', { className: 'text-sm text-yellow-800' },
-                                    React.createElement('strong', null, 'Important : '),
-                                    'Ce calculateur est à titre informatif uniquement et ne remplace pas un avis médical professionnel. Consultez toujours un professionnel de santé pour des conseils personnalisés.'
+                                    React.createElement('strong', null, '⚕️ Avertissement Médical : '),
+                                    'Ce calculateur fournit une estimation indicative basée sur des moyennes statistiques. Les résultats peuvent varier significativement selon votre génétique, votre historique médical et d\'autres facteurs individuels. Cet outil ne constitue ni un diagnostic médical, ni un avis professionnel, ni un dispositif médical certifié. Consultez toujours un professionnel de santé qualifié (médecin, diététicien) pour un bilan de santé complet et des conseils personnalisés adaptés à votre situation.'
                                 )
                             )
                         )
@@ -1679,6 +1679,62 @@
             }
         });
     </script>
+
+    <!-- Footer Legal -->
+    <footer style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 40px 20px; margin-top: 60px; border-top: 4px solid #3B82F6;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+                <!-- À propos -->
+                <div>
+                    <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #60a5fa;">À Propos de BioAge</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: #cbd5e1;">
+                        Calculateur d'âge biologique gratuit et confidentiel. Estimation basée sur votre style de vie pour vous aider à améliorer votre santé.
+                    </p>
+                </div>
+
+                <!-- Liens légaux -->
+                <div>
+                    <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #60a5fa;">Informations Légales</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2;">
+                        <li><a href="mentions-legales.html" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#cbd5e1'">📄 Mentions Légales</a></li>
+                        <li><a href="privacy-policy.html" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#cbd5e1'">🔒 Politique de Confidentialité</a></li>
+                        <li><a href="/.well-known/security.txt" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#cbd5e1'">🛡️ Sécurité (RFC 9116)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #60a5fa;">Contact</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2;">
+                        <li style="color: #cbd5e1;">📧 <a href="mailto:contact@agebiologique.eu" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#cbd5e1'">contact@agebiologique.eu</a></li>
+                        <li style="color: #cbd5e1;">🔐 <a href="mailto:security@agebiologique.eu" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#cbd5e1'">security@agebiologique.eu</a></li>
+                        <li style="color: #cbd5e1;">🇫🇷 France</li>
+                    </ul>
+                </div>
+
+                <!-- Avertissement -->
+                <div>
+                    <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #fbbf24;">⚕️ Avertissement</h3>
+                    <p style="font-size: 13px; line-height: 1.5; color: #cbd5e1;">
+                        Outil informatif uniquement. Ne constitue pas un avis médical. Consultez un professionnel de santé.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center;">
+                <p style="font-size: 14px; color: #94a3b8; margin-bottom: 10px;">
+                    &copy; 2024-2025 BioAge. Tous droits réservés.
+                </p>
+                <p style="font-size: 12px; color: #64748b;">
+                    Conforme RGPD • Conforme LCEN • Hébergé par Netlify • Sécurité A++
+                </p>
+                <p style="font-size: 11px; color: #475569; margin-top: 10px;">
+                    🤖 Generated with <a href="https://claude.com/claude-code" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none;">Claude Code</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>                              
 
