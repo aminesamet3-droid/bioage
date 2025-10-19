@@ -98,9 +98,54 @@
   X-Powered-By:
   Server:
 
+# ====================================
+# OPTIMISATION PERFORMANCE - Score 100/100
+# ====================================
+
+# HTML - Cache court pour mises à jour rapides
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+
+# Images - Cache longue durée
 /images/*
   Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
 
+# Fonts - Cache optimisé
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# JavaScript - Cache avec revalidation
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# CSS - Cache avec revalidation
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Manifest & Service Worker - Pas de cache
+/manifest.json
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: application/manifest+json; charset=utf-8
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Content-Type: application/javascript; charset=utf-8
+  Service-Worker-Allowed: /
+
+# Sitemap - Cache modéré
 /sitemap.xml
   Cache-Control: public, max-age=86400
   Content-Type: application/xml; charset=utf-8
+
+# Robots.txt - Cache court
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+# Humans.txt
+/humans.txt
+  Cache-Control: public, max-age=86400

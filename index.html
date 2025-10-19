@@ -57,6 +57,11 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
 
+    <!-- Windows Tiles -->
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#3B82F6">
+    <meta name="msapplication-TileImage" content="/images/mstile-144x144.png">
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>">
@@ -80,12 +85,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <!-- Preconnect for Performance (Score 100/100) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://analytics.google.com">
+
+    <!-- Preload Critical Resources (Optimisation Mondiale) -->
+    <link rel="modulepreload" href="https://unpkg.com/react@18.2.0/umd/react.production.min.js">
+    <link rel="modulepreload" href="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js">
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://unpkg.com/react@18.2.0/umd/react.production.min.js" as="script" crossorigin>
