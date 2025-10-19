@@ -66,6 +66,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="BioAge">
 
+    <!-- Humans.txt -->
+    <link rel="author" href="/humans.txt">
+
+    <!-- SEO Avancé - Optimisation Mondiale -->
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="target" content="all">
+    <meta name="audience" content="all">
+    <meta name="revisit-after" content="7 days">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://unpkg.com">
@@ -177,7 +191,7 @@
       "url": "https://agebiologique.eu/",
       "inLanguage": "fr-FR",
       "datePublished": "2024-01-01",
-      "dateModified": "2025-10-17",
+      "dateModified": "2025-10-19",
       "about": {
         "@type": "MedicalCondition",
         "name": "Santé et Bien-être"
@@ -196,6 +210,41 @@
         "name": "BioAge",
         "url": "https://agebiologique.eu/"
       }
+    }
+    </script>
+
+    <!-- Organization Schema Enrichi (SEO Mondial) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BioAge",
+      "legalName": "BioAge - Calculateur d'Âge Biologique",
+      "url": "https://agebiologique.eu/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://agebiologique.eu/images/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Plateforme gratuite de calcul d'âge biologique avec recommandations santé personnalisées",
+      "foundingDate": "2024",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "contact@agebiologique.eu",
+        "availableLanguage": ["French", "English"]
+      },
+      "sameAs": [
+        "https://www.facebook.com/agebiologique",
+        "https://twitter.com/agebiologique",
+        "https://www.linkedin.com/company/agebiologique"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "knowsAbout": ["Santé", "Longévité", "Bien-être", "Prévention", "Style de vie sain"]
     }
     </script>
     
@@ -1489,6 +1538,141 @@
                     'value': timeSpent,
                     'event_category': 'Engagement'
                 });
+            }
+        });
+
+        // === ANALYTICS AVANCÉS - NIVEAU MONDIAL ===
+
+        // Track Core Web Vitals (Performance)
+        if ('PerformanceObserver' in window && typeof gtag === 'function') {
+            // Largest Contentful Paint (LCP)
+            new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (entry.startTime < 5000) { // Track only if < 5s
+                        gtag('event', 'web_vitals', {
+                            'event_category': 'Performance',
+                            'event_label': 'LCP',
+                            'value': Math.round(entry.startTime),
+                            'metric_rating': entry.startTime < 2500 ? 'good' : entry.startTime < 4000 ? 'needs_improvement' : 'poor'
+                        });
+                    }
+                }
+            }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+            // First Input Delay (FID)
+            new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    gtag('event', 'web_vitals', {
+                        'event_category': 'Performance',
+                        'event_label': 'FID',
+                        'value': Math.round(entry.processingStart - entry.startTime),
+                        'metric_rating': entry.processingStart - entry.startTime < 100 ? 'good' : entry.processingStart - entry.startTime < 300 ? 'needs_improvement' : 'poor'
+                    });
+                }
+            }).observe({ entryTypes: ['first-input'] });
+
+            // Cumulative Layout Shift (CLS)
+            let clsValue = 0;
+            new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                    }
+                }
+            }).observe({ entryTypes: ['layout-shift'] });
+
+            // Report CLS on page unload
+            window.addEventListener('beforeunload', () => {
+                gtag('event', 'web_vitals', {
+                    'event_category': 'Performance',
+                    'event_label': 'CLS',
+                    'value': Math.round(clsValue * 1000),
+                    'metric_rating': clsValue < 0.1 ? 'good' : clsValue < 0.25 ? 'needs_improvement' : 'poor'
+                });
+            }, { once: true });
+        }
+
+        // Track JavaScript Errors (Quality Monitoring)
+        window.addEventListener('error', (event) => {
+            if (typeof gtag === 'function') {
+                gtag('event', 'exception', {
+                    'description': event.message + ' at ' + event.filename + ':' + event.lineno,
+                    'fatal': false,
+                    'event_category': 'Error'
+                });
+            }
+        });
+
+        // Track Form Interactions (Conversion Funnel)
+        let formInteractions = {
+            started: false,
+            fields_completed: 0,
+            total_fields: 8
+        };
+
+        function trackFormStart() {
+            if (!formInteractions.started && typeof gtag === 'function') {
+                formInteractions.started = true;
+                gtag('event', 'begin_checkout', {
+                    'event_category': 'Calculator',
+                    'event_label': 'Form Started'
+                });
+            }
+        }
+
+        function trackFieldComplete() {
+            formInteractions.fields_completed++;
+            if (typeof gtag === 'function') {
+                gtag('event', 'add_to_cart', {
+                    'event_category': 'Calculator',
+                    'event_label': 'Field Completed',
+                    'value': formInteractions.fields_completed,
+                    'completion_rate': Math.round((formInteractions.fields_completed / formInteractions.total_fields) * 100)
+                });
+            }
+        }
+
+        // Track PWA Install
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (typeof gtag === 'function') {
+                gtag('event', 'pwa_install_prompt_shown', {
+                    'event_category': 'PWA'
+                });
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            if (typeof gtag === 'function') {
+                gtag('event', 'pwa_installed', {
+                    'event_category': 'PWA',
+                    'event_label': 'Success'
+                });
+            }
+        });
+
+        // Track Engagement Quality Score
+        function calculateEngagementScore() {
+            const timeSpent = Math.round((Date.now() - startTime) / 1000);
+            const scrollScore = maxScroll / 100;
+            const interactionScore = formInteractions.started ? 1 : 0;
+            const engagementScore = Math.round((timeSpent/60 * 0.4 + scrollScore * 0.3 + interactionScore * 0.3) * 100);
+
+            if (typeof gtag === 'function' && timeSpent > 30) {
+                gtag('event', 'engagement_score', {
+                    'event_category': 'Quality',
+                    'event_label': engagementScore > 70 ? 'High' : engagementScore > 40 ? 'Medium' : 'Low',
+                    'value': engagementScore
+                });
+            }
+        }
+
+        // Calculate engagement score on visibility change
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                calculateEngagementScore();
             }
         });
     </script>

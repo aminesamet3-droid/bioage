@@ -1,0 +1,10 @@
+# ads.txt - BioAge
+# Authorized Digital Sellers - IAB Tech Lab
+# Last updated: 2025-10-19
+# Contact: admin@agebiologique.eu
+
+# Google AdSense (Future)
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Site actuellement sans publicité - 100% gratuit pour les utilisateurs
+# Ce fichier est préparé pour une monétisation éthique future si nécessaire

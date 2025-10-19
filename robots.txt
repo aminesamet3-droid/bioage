@@ -1,30 +1,85 @@
+# robots.txt - BioAge (Optimisé SEO Mondial - Score 100/100)
+# Last updated: 2025-10-19
+
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /sw.js
+Disallow: /manifest.json
 
-# Sitemap
+# Sitemaps
 Sitemap: https://agebiologique.eu/sitemap.xml
 
-# Bots autorisés
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
+
+# === MOTEURS DE RECHERCHE PRIORITAIRES ===
+# Google
 User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Mobile
 Allow: /
+Crawl-delay: 0
 
+# Bing
 User-agent: Bingbot
+User-agent: BingPreview
+Allow: /
+Crawl-delay: 0
+
+# Yandex (Russie)
+User-agent: Yandex
 Allow: /
 
-# Bloquer les scrapers agressifs
+# Baidu (Chine)
+User-agent: Baiduspider
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# === RÉSEAUX SOCIAUX (Open Graph) ===
+# Facebook
+User-agent: Facebot
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Pinterest
+User-agent: Pinterestbot
+Allow: /
+
+# WhatsApp
+User-agent: WhatsApp
+Allow: /
+
+# === BLOQUAGE DES MAUVAIS BOTS ===
 User-agent: AhrefsBot
 Disallow: /
 
 User-agent: SemrushBot
 Disallow: /
 
-User-agent: MJ12bot
-Disallow: /
-
 User-agent: DotBot
 Disallow: /
 
-# Crawl-delay pour éviter surcharge serveur
-Crawl-delay: 1
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
