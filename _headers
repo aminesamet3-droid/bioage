@@ -99,8 +99,8 @@
   # Server Information Hiding
   # ====================================
   # Remove server signature (Banking Best Practice)
-  X-Powered-By:
-  Server:
+  # X-Powered-By:
+  # Server:
 
   # ====================================
   # SÉCURITÉ BANCAIRE A++ (Headers Additionnels)
