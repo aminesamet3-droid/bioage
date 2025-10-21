@@ -1,3 +1,17 @@
+/sitemap.xml
+  # Allow Google and other search engines to access sitemap
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=0, must-revalidate
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+
+/robots.txt
+  # Allow public access to robots.txt
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=0, must-revalidate
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+
 /*
   # Security Headers for agebiologique.eu
 
