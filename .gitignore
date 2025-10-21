@@ -25,3 +25,5 @@ env/
 *.tmp
 *.bak
 .cache/
+
+.vercel
