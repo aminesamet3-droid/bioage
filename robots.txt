@@ -4,7 +4,7 @@ Disallow: /admin/
 Disallow: /private/
 
 # Sitemap
-Sitemap: https://agebiologique.eu/sitemap.xml
+Sitemap: https://www.agebiologique.eu/sitemap.xml
 
 # Bots autorisés
 User-agent: Googlebot
