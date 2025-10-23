@@ -66,4 +66,38 @@
   <url><loc>https://www.agebiologique.eu/thematiques/esperance-vie-france.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.agebiologique.eu/thematiques/calculer-esperance-vie.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- Pages institutionnelles -->
+  <url>
+    <loc>https://www.agebiologique.eu/contact.html</loc>
+    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.agebiologique.eu/a-propos.html</loc>
+    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.agebiologique.eu/faq.html</loc>
+    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Pages légales -->
+  <url>
+    <loc>https://www.agebiologique.eu/mentions-legales.html</loc>
+    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.agebiologique.eu/privacy-policy.html</loc>
+    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
