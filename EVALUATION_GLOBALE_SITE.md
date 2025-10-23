@@ -876,7 +876,7 @@ Le site **agebiologique.eu** est un projet **très prometteur** avec de solides 
 ---
 
 **Rapport généré le :** 16 octobre 2025
-**Analyste :** Claude Code - Évaluation Automatisée
+**Analyste :** BioAge Team - Évaluation Automatisée
 **Version :** 1.0 - Analyse Complète
 
 ---

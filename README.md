@@ -385,5 +385,5 @@ bioage/
 
 **Version :** 1.1
 **Dernière mise à jour :** 17 octobre 2025
-**Créé avec :** Claude Code
+**Créé avec :** BioAge Team
 **Domaine :** agebiologique.eu

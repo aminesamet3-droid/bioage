@@ -580,6 +580,6 @@ Ou contactez-moi via : **certifyprofree@gmail.com**
 
 ---
 
-**Rapport généré par Claude Code le 23 octobre 2025**
+**Rapport généré par BioAge Team le 23 octobre 2025**
 **Projet BioAge - www.agebiologique.eu**
 **Version 1.0**

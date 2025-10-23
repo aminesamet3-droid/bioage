@@ -361,7 +361,7 @@ npm run build
 ### 2. Ajouter un fichier `security.txt`
 
 ```
-Contact: mailto:security@agebiologique.eu
+Contact: mailto:certifyprofree@gmail.com
 Expires: 2026-12-31T23:59:59.000Z
 Preferred-Languages: fr, en
 ```

@@ -393,5 +393,5 @@ Pour toute question concernant ces implémentations :
 ---
 
 **Généré le :** 16 octobre 2025
-**Validé par :** Claude Code (Audit de sécurité automatisé)
+**Validé par :** BioAge Team (Audit de sécurité automatisé)
 **Prochaine révision :** 16 janvier 2026 (3 mois)

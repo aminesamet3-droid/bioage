@@ -1,20 +1,15 @@
 /* TEAM */
 Developer: BioAge Team
-Site: https://agebiologique.eu
+Site: https://www.agebiologique.eu
+Contact: certifyprofree@gmail.com
 Location: France
 
 /* SITE */
-Last update: 2025-10-19
-Standards: HTML5, CSS3, ES6+, React 18, PWA
-Components: React, TailwindCSS, Lucide Icons
-Software: Claude Code, Git, GitHub Pages
+Last update: 2025-10-23
+Standards: HTML5, CSS3, JavaScript
+Components: React, TailwindCSS
+Software: Git, GitHub, Vercel
 
 /* THANKS */
 Open Source: React, TailwindCSS, Lucide
 Community: Medical & Health Research Community
-Users: Merci à nos 1247+ utilisateurs satisfaits
-
-/* SECURITY */
-Security Level: Military Grade (A++)
-Compliance: RFC 9116, OWASP Top 10, NIST
-Contact: security@agebiologique.eu

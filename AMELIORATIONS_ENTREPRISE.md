@@ -3,7 +3,7 @@
 
 **Date:** 18 Octobre 2025  
 **Version:** 2.0 Enterprise  
-**Développeur:** Claude Code  
+**Développeur:** BioAge Team  
 
 ---
 
@@ -301,7 +301,7 @@ Pour toute question sur ces améliorations:
 
 ---
 
-**Développé avec ❤️ par Claude Code**  
+**Développé avec ❤️ par BioAge Team**  
 **Objectif: Entreprise mondiale #1 sur l'âge biologique**
 
 🚀 **Déployez et dominez !**
