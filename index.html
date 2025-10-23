@@ -686,6 +686,7 @@
                     bmi: bmi.toFixed(1)
                 });
                 setStep('result');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             };
             
             // AJOUT : Fonction de calcul du score bien-être
@@ -746,6 +747,7 @@
                 });
 
                 setStep('final-result');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             };
 
             const handleSubmit = () => {
@@ -860,7 +862,10 @@
                             ),
 
                             React.createElement('button', {
-                                onClick: () => setStep('form'),
+                                onClick: () => {
+                                    setStep('form');
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                },
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
                         ),
@@ -1112,7 +1117,10 @@
 
                             // AJOUT : Bouton continuer
                             React.createElement('button', {
-                                onClick: () => setStep('wellbeing'),
+                                onClick: () => {
+                                    setStep('wellbeing');
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                },
                                 className: 'w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl font-bold py-4 rounded-xl transition transform hover:scale-105 shadow-lg mb-4'
                             }, '✨ Continuer vers le Bien-être →'),
 
@@ -1193,7 +1201,10 @@
                             ),
 
                             React.createElement('button', {
-                                onClick: () => setStep('form'),
+                                onClick: () => {
+                                    setStep('form');
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                },
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
                         ),
