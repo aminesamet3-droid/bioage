@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test React</title>
+    <style>
+        #root { border: 3px solid green; padding: 20px; margin: 20px; }
+        .faq { border: 3px solid red; padding: 20px; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>AVANT ROOT DIV</h1>
+    <div id="root">Chargement...</div>
+    <h1>APRÈS ROOT DIV</h1>
+    
+    <div class="faq">
+        <h2>FAQ (HTML Statique)</h2>
+        <p>Ceci est du HTML statique qui devrait apparaître APRÈS React</p>
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+
+    <script>
+        console.log('=== DÉBUT SCRIPT ===');
+        console.log('React chargé?', typeof React !== 'undefined');
+        console.log('ReactDOM chargé?', typeof ReactDOM !== 'undefined');
+        
+        function waitAndRender() {
+            if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
+                console.log('Attente des bibliothèques...');
+                setTimeout(waitAndRender, 100);
+                return;
+            }
+            
+            console.log('Bibliothèques prêtes! Rendu React...');
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(
+                React.createElement('div', { style: { background: 'yellow', padding: '20px' } },
+                    React.createElement('h1', { style: { color: 'red' } }, '✅ REACT FONCTIONNE!'),
+                    React.createElement('p', null, 'Si vous voyez ce texte jaune/rouge, React marche parfaitement.')
+                )
+            );
+            console.log('=== REACT MONTÉ AVEC SUCCÈS ===');
+        }
+        
+        waitAndRender();
+    </script>
+</body>
+</html>
