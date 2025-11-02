@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Minimal - BioAge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        #result {
+            display: none;
+            text-align: center;
+            font-size: 24px;
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 style="text-align: center; color: #333;">🧬 Calculateur d'Âge Biologique</h1>
+        <p style="text-align: center; color: #666;">Version minimale sans React</p>
+
+        <div id="form">
+            <label>Votre âge:</label>
+            <input type="number" id="age" placeholder="Ex: 35">
+
+            <label>Votre poids (kg):</label>
+            <input type="number" id="weight" placeholder="Ex: 70">
+
+            <label>Votre taille (cm):</label>
+            <input type="number" id="height" placeholder="Ex: 170">
+
+            <button onclick="calculate()">Calculer mon âge biologique</button>
+        </div>
+
+        <div id="result">
+            <h2>Votre âge biologique:</h2>
+            <h1 id="bioage-result" style="color: #4CAF50; font-size: 48px;"></h1>
+            <button onclick="reset()">Refaire le test</button>
+        </div>
+    </div>
+
+    <script>
+        // Test immédiat
+        alert('✅ JavaScript fonctionne sur cette page!');
+
+        function calculate() {
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+
+            if (!age || !weight || !height) {
+                alert('Veuillez remplir tous les champs');
+                return;
+            }
+
+            // Calcul IMC
+            const bmi = weight / Math.pow(height / 100, 2);
+            let bioAge = age;
+
+            // Ajustements simples
+            if (bmi < 18.5) bioAge += 2;
+            else if (bmi > 25) bioAge += 3;
+            else bioAge -= 2;
+
+            // Afficher le résultat
+            document.getElementById('bioage-result').textContent = Math.round(bioAge) + ' ans';
+            document.getElementById('form').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+        }
+
+        function reset() {
+            document.getElementById('form').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('age').value = '';
+            document.getElementById('weight').value = '';
+            document.getElementById('height').value = '';
+        }
+    </script>
+</body>
+</html>
