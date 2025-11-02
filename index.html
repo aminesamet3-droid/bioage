@@ -509,24 +509,37 @@
     <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"></script>
 
     <script>
+        console.log('[DEBUG] Script started');
+
         // Wait for all external scripts to load
         function waitForLibraries(callback) {
             if (typeof React !== 'undefined' && typeof ReactDOM !== 'undefined' && typeof lucide !== 'undefined') {
+                console.log('[DEBUG] All libraries loaded!');
                 callback();
             } else {
+                console.log('[DEBUG] Waiting for libraries...', {
+                    React: typeof React !== 'undefined',
+                    ReactDOM: typeof ReactDOM !== 'undefined',
+                    lucide: typeof lucide !== 'undefined'
+                });
                 setTimeout(() => waitForLibraries(callback), 50);
             }
         }
 
         waitForLibraries(function() {
-            const { useState } = React;
-            const {
-                Heart, Activity, Moon, Utensils, Brain, Share2,
-                TrendingUp, TrendingDown, Minus, Facebook,
-                Twitter, MessageCircle, AlertCircle
-            } = lucide;
+            console.log('[DEBUG] Inside waitForLibraries callback');
 
-            function BioAgeCalculator() {
+            try {
+                const { useState } = React;
+                const {
+                    Heart, Activity, Moon, Utensils, Brain, Share2,
+                    TrendingUp, TrendingDown, Minus, Facebook,
+                    Twitter, MessageCircle, AlertCircle
+                } = lucide;
+
+                console.log('[DEBUG] React hooks extracted successfully');
+
+                function BioAgeCalculator() {
             const [step, setStep] = useState('form');
             const [formData, setFormData] = useState({
                 age: '',
@@ -1954,22 +1967,48 @@
         );
         }
 
+        console.log('[DEBUG] BioAgeCalculator function defined');
+
         // Wait for DOM to be ready
         if (document.readyState === 'loading') {
+            console.log('[DEBUG] DOM loading - waiting for DOMContentLoaded');
             document.addEventListener('DOMContentLoaded', initApp);
         } else {
+            console.log('[DEBUG] DOM already ready - calling initApp()');
             initApp();
         }
 
         function initApp() {
-            const root = ReactDOM.createRoot(document.getElementById('root'));
+            console.log('[DEBUG] initApp called');
+            const rootElement = document.getElementById('root');
+            console.log('[DEBUG] Root element:', rootElement);
+
+            if (!rootElement) {
+                console.error('[ERROR] Root element not found!');
+                return;
+            }
+
+            const root = ReactDOM.createRoot(rootElement);
+            console.log('[DEBUG] ReactDOM root created');
+
             root.render(React.createElement(BioAgeCalculator));
+            console.log('[DEBUG] React app rendered!');
 
             // Initialize Lucide icons after render
-            setTimeout(() => lucide.createIcons(), 100);
+            setTimeout(() => {
+                lucide.createIcons();
+                console.log('[DEBUG] Lucide icons initialized');
+            }, 100);
         }
 
+            } catch (error) {
+                console.error('[ERROR] Exception in waitForLibraries:', error);
+                console.error('[ERROR] Stack:', error.stack);
+            }
+
         }); // End waitForLibraries
+
+        console.log('[DEBUG] Script end');
     </script>
 </body>
 </html>                              
