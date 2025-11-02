@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnostic BioAge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        #logs {
+            background: black;
+            color: lime;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .error { color: red; font-weight: bold; }
+        .success { color: #00ff00; font-weight: bold; }
+        .info { color: #00aaff; }
+        #root { 
+            border: 3px solid blue;
+            padding: 20px;
+            background: white;
+            min-height: 100px;
+        }
+        h1 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>🔬 Diagnostic BioAge - Mode Debug Visuel</h1>
+    
+    <div id="logs">Initialisation du diagnostic...\n</div>
+    
+    <h2>Zone React (doit afficher le formulaire) :</h2>
+    <div id="root">⏳ Attente du chargement React...</div>
+
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"></script>
+
+    <script>
+        const logArea = document.getElementById('logs');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type;
+            logArea.innerHTML += `<span class="${className}">[${timestamp}] ${message}</span>\n`;
+            logArea.scrollTop = logArea.scrollHeight;
+        }
+
+        log('✓ Script démarré', 'success');
+
+        function waitForLibraries(callback) {
+            const reactReady = typeof React !== 'undefined';
+            const reactDOMReady = typeof ReactDOM !== 'undefined';
+            const lucideReady = typeof lucide !== 'undefined';
+
+            log(`Vérification bibliothèques:
+  - React: ${reactReady ? '✓' : '✗'}
+  - ReactDOM: ${reactDOMReady ? '✓' : '✗'}
+  - Lucide: ${lucideReady ? '✓' : '✗'}`, reactReady && reactDOMReady && lucideReady ? 'success' : 'info');
+
+            if (reactReady && reactDOMReady && lucideReady) {
+                log('✓ TOUTES les bibliothèques chargées!', 'success');
+                try {
+                    callback();
+                } catch (error) {
+                    log('✗ ERREUR dans callback: ' + error.message, 'error');
+                    log('Stack trace: ' + error.stack, 'error');
+                }
+            } else {
+                setTimeout(() => waitForLibraries(callback), 100);
+            }
+        }
+
+        waitForLibraries(function() {
+            log('✓ Début du rendu React', 'success');
+
+            try {
+                const { useState } = React;
+                log('✓ useState extrait de React', 'success');
+
+                const { Heart } = lucide;
+                log('✓ Icônes Lucide extraites', 'success');
+
+                function SimpleTest() {
+                    const [count, setCount] = useState(0);
+                    
+                    return React.createElement('div', { style: { background: 'yellow', padding: '20px', borderRadius: '10px' } },
+                        React.createElement('h2', { style: { color: 'green' } }, '✅ REACT FONCTIONNE PARFAITEMENT!'),
+                        React.createElement('p', null, 'Si vous voyez ce texte en jaune/vert, React est opérationnel.'),
+                        React.createElement('button', {
+                            onClick: () => setCount(count + 1),
+                            style: {
+                                padding: '10px 20px',
+                                fontSize: '16px',
+                                background: '#007bff',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '5px',
+                                cursor: 'pointer'
+                            }
+                        }, `Clics: ${count}`)
+                    );
+                }
+
+                log('✓ Composant SimpleTest créé', 'success');
+
+                const rootElement = document.getElementById('root');
+                if (!rootElement) {
+                    log('✗ ERREUR: Élément root introuvable!', 'error');
+                    return;
+                }
+                log('✓ Élément root trouvé', 'success');
+
+                const root = ReactDOM.createRoot(rootElement);
+                log('✓ ReactDOM.createRoot() réussi', 'success');
+
+                root.render(React.createElement(SimpleTest));
+                log('✓ root.render() appelé', 'success');
+
+                setTimeout(() => {
+                    log('✓ React complètement monté!', 'success');
+                    log('\n═══════════════════════════════', 'success');
+                    log('DIAGNOSTIC COMPLET:', 'success');
+                    log('React fonctionne correctement!', 'success');
+                    log('Le problème est ailleurs dans index.html', 'info');
+                    log('═══════════════════════════════', 'success');
+                }, 200);
+
+            } catch (error) {
+                log('✗ ERREUR CRITIQUE: ' + error.message, 'error');
+                log('Stack: ' + error.stack, 'error');
+            }
+        });
+
+        log('Script principal terminé - en attente des bibliothèques...', 'info');
+    </script>
+</body>
+</html>
