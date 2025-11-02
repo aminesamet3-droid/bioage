@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test React</title>
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <h1>Test React Minimal</h1>
+    <div id="root"></div>
+    <h2>Ceci est du HTML statique</h2>
+    
+    <script>
+        console.log('Script started');
+        console.log('React available?', typeof React !== 'undefined');
+        console.log('ReactDOM available?', typeof ReactDOM !== 'undefined');
+        
+        if (typeof React !== 'undefined' && typeof ReactDOM !== 'undefined') {
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(React.createElement('h1', {style: {color: 'red'}}, 'REACT FONCTIONNE!'));
+            console.log('React mounted!');
+        } else {
+            console.error('React or ReactDOM not loaded!');
+        }
+    </script>
+</body>
+</html>

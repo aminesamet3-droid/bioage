@@ -1,103 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Page principale -->
-  <url>
-    <loc>https://www.agebiologique.eu/</loc>
-    <lastmod>2025-10-21T12:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+    <!-- French Version (Main) -->
+    <url>
+        <loc>https://www.agebiologique.eu/</loc>
+        <lastmod>2025-01-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.agebiologique.eu/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.agebiologique.eu/index-en.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.agebiologique.eu/index-de.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.agebiologique.eu/index-es.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agebiologique.eu/"/>
+    </url>
 
-  <!-- Articles de blog (20) -->
-  <url><loc>https://www.agebiologique.eu/blog/comment-calculer-age-biologique.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/tests-age-biologique-fiables.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/age-biologique-vs-chronologique.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/rajeunir-age-biologique.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/facteurs-vieillissement.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/alimentation-anti-age.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/sport-age-biologique.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/sommeil-vieillissement.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/stress-age-biologique.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/calculateur-age-biologique-gratuit.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/jeunesse-biologique.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/vieillissement-cellulaire.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/telomeres-longevite.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/antioxydants-anti-age.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/mode-vie-sain.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/biomarqueurs-vieillissement.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/supplements-anti-age.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/meditation-longevite.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/hormones-age-biologique.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.agebiologique.eu/blog/calcul-esperance-vie.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <!-- English Version -->
+    <url>
+        <loc>https://www.agebiologique.eu/index-en.html</loc>
+        <lastmod>2025-01-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.agebiologique.eu/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.agebiologique.eu/index-en.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.agebiologique.eu/index-de.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.agebiologique.eu/index-es.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agebiologique.eu/"/>
+    </url>
 
-  <!-- Pages villes (21) -->
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-paris.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-lyon.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-marseille.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-toulouse.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-nice.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-nantes.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-bordeaux.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-lille.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-strasbourg.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-rennes.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-montpellier.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-grenoble.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-dijon.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-angers.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-nimes.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-clermont-ferrand.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-tours.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-limoges.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-brest.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-amiens.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/ville/age-biologique-perpignan.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <!-- German Version -->
+    <url>
+        <loc>https://www.agebiologique.eu/index-de.html</loc>
+        <lastmod>2025-01-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.agebiologique.eu/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.agebiologique.eu/index-en.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.agebiologique.eu/index-de.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.agebiologique.eu/index-es.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agebiologique.eu/"/>
+    </url>
 
-  <!-- Pages thématiques (10) -->
-  <url><loc>https://www.agebiologique.eu/thematiques/age-biologique-30-ans.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/age-biologique-40-ans.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/age-biologique-50-ans.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/age-biologique-60-ans.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/age-biologique-femme.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/age-biologique-homme.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/rajeunir-10-ans.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/test-longevite.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/esperance-vie-france.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.agebiologique.eu/thematiques/calculer-esperance-vie.html</loc><lastmod>2025-10-21T12:00:00+00:00</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- Pages institutionnelles -->
-  <url>
-    <loc>https://www.agebiologique.eu/contact.html</loc>
-    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.agebiologique.eu/a-propos.html</loc>
-    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.agebiologique.eu/faq.html</loc>
-    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Pages légales -->
-  <url>
-    <loc>https://www.agebiologique.eu/mentions-legales.html</loc>
-    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.agebiologique.eu/privacy-policy.html</loc>
-    <lastmod>2025-10-23T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
+    <!-- Spanish Version -->
+    <url>
+        <loc>https://www.agebiologique.eu/index-es.html</loc>
+        <lastmod>2025-01-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.agebiologique.eu/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.agebiologique.eu/index-en.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.agebiologique.eu/index-de.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.agebiologique.eu/index-es.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agebiologique.eu/"/>
+    </url>
 
 </urlset>
