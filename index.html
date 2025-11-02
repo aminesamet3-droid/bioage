@@ -509,14 +509,24 @@
     <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"></script>
 
     <script>
-        const { useState } = React;
-        const { 
-            Heart, Activity, Moon, Utensils, Brain, Share2, 
-            TrendingUp, TrendingDown, Minus, Facebook, 
-            Twitter, MessageCircle, AlertCircle 
-        } = lucide;
+        // Wait for all external scripts to load
+        function waitForLibraries(callback) {
+            if (typeof React !== 'undefined' && typeof ReactDOM !== 'undefined' && typeof lucide !== 'undefined') {
+                callback();
+            } else {
+                setTimeout(() => waitForLibraries(callback), 50);
+            }
+        }
 
-        function BioAgeCalculator() {
+        waitForLibraries(function() {
+            const { useState } = React;
+            const {
+                Heart, Activity, Moon, Utensils, Brain, Share2,
+                TrendingUp, TrendingDown, Minus, Facebook,
+                Twitter, MessageCircle, AlertCircle
+            } = lucide;
+
+            function BioAgeCalculator() {
             const [step, setStep] = useState('form');
             const [formData, setFormData] = useState({
                 age: '',
@@ -1958,6 +1968,8 @@
             // Initialize Lucide icons after render
             setTimeout(() => lucide.createIcons(), 100);
         }
+
+        }); // End waitForLibraries
     </script>
 </body>
 </html>                              
