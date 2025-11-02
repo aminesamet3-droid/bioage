@@ -287,8 +287,8 @@
             <div class="cookie-text">
                 <h3>🍪 Respect de votre vie privée</h3>
                 <p>
-                    Nous utilisons des cookies uniquement pour analyser le trafic (Google Analytics) et améliorer votre expérience.
-                    Ces cookies ne sont activés qu'avec votre consentement. Aucune publicité sur ce site.
+                    Nous utilisons des cookies pour analyser le trafic (Google Analytics) et afficher des publicités (Google AdSense).
+                    Ces cookies ne sont activés qu'avec votre consentement.
                     <a href="privacy-policy.html" target="_blank">Politique de confidentialité</a>
                 </p>
             </div>
@@ -334,6 +334,9 @@
             }
         });
     </script>
+    <!-- ESPACE ADSENSE HAUT -->
+    <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
+    
     <div id="root"></div>
 
     <!-- FAQ Section -->
@@ -509,6 +512,9 @@
         </div>
     </footer>
 
+    <!-- ESPACE ADSENSE BAS -->
+    <!-- Remplacez ce commentaire par votre code Google AdSense quand vous l'aurez -->
+
     <script type="text/babel">
         const { useState } = React;
         const { 
@@ -542,54 +548,19 @@
                 fruits: '3',
                 vegetables: '3'
             });
-
-            // NOUVEAU : État pour les données santé avancées (15 nouvelles questions)
-            const [advancedHealthData, setAdvancedHealthData] = useState({
-                bloodPressure: '1',        // Tension artérielle
-                restingHeartRate: '70',    // Fréquence cardiaque repos
-                familyHistory: 'no',       // Antécédents familiaux
-                digestion: '3',            // Qualité digestion
-                fiber: '3',                // Consommation fibres
-                flexibility: 'medium',     // Toucher orteils
-                balance: 'yes',            // Équilibre 30s
-                jointPain: '2',            // Douleurs articulaires
-                sunProtection: 'sometimes',// Protection solaire
-                airQuality: 'medium',      // Pollution
-                screenTime: '4',           // Temps d'écran
-                cognitiveActivities: '3',  // Activités intellectuelles
-                memoryQuality: '3',        // Qualité mémoire
-                supplements: [],           // Suppléments (array)
-                medicalCheckups: 'sometimes' // Bilans santé
-            });
-
+            
             const [result, setResult] = useState(null);
-
+            
             // AJOUT : État pour le score bien-être
             const [wellbeingScore, setWellbeingScore] = useState(null);
 
             const handleInputChange = (e) => {
                 setFormData({ ...formData, [e.target.name]: e.target.value });
             };
-
+            
             // AJOUT : Handler pour les inputs bien-être
             const handleWellbeingChange = (e) => {
                 setWellbeingData({ ...wellbeingData, [e.target.name]: e.target.value });
-            };
-
-            // NOUVEAU : Handler pour les inputs santé avancée
-            const handleAdvancedHealthChange = (e) => {
-                const { name, value, type, checked } = e.target;
-                if (type === 'checkbox') {
-                    // Pour les checkboxes (suppléments), gérer l'array
-                    setAdvancedHealthData(prev => ({
-                        ...prev,
-                        supplements: checked
-                            ? [...prev.supplements, value]
-                            : prev.supplements.filter(s => s !== value)
-                    }));
-                } else {
-                    setAdvancedHealthData({ ...advancedHealthData, [name]: value });
-                }
             };
 
             const calculateBioAge = () => {
@@ -629,88 +600,6 @@
                 else if (alcohol === 0) bioAge -= 1;
 
                 if (formData.gender === 'female') bioAge -= 1;
-
-                // NOUVEAU : Calculs pour les 15 nouvelles questions de santé avancée
-
-                // 1. Tension artérielle
-                const bp = parseInt(advancedHealthData.bloodPressure);
-                if (bp === 1) bioAge -= 2;        // Normale
-                else if (bp === 2) bioAge += 1;   // Pré-hypertension
-                else if (bp === 3) bioAge += 3;   // Hypertension légère
-                else if (bp === 4) bioAge += 5;   // Hypertension sévère
-                else if (bp === 5) bioAge += 1;   // Je ne sais pas
-
-                // 2. Fréquence cardiaque repos
-                const hr = parseInt(advancedHealthData.restingHeartRate);
-                if (hr < 60) bioAge -= 2;
-                else if (hr <= 70) bioAge -= 1;
-                else if (hr <= 80) bioAge += 0;
-                else if (hr <= 90) bioAge += 2;
-                else bioAge += 4;
-
-                // 3. Antécédents familiaux
-                if (advancedHealthData.familyHistory === 'no') bioAge += 0;
-                else if (advancedHealthData.familyHistory === 'after70') bioAge += 1;
-                else if (advancedHealthData.familyHistory === 'before60') bioAge += 3;
-
-                // 4. Digestion
-                const digestion = parseInt(advancedHealthData.digestion);
-                if (digestion === 1) bioAge += 3;
-                else if (digestion === 2) bioAge += 1;
-                else if (digestion === 4) bioAge -= 1;
-                else if (digestion === 5) bioAge -= 2;
-
-                // 5. Fibres
-                const fiber = parseInt(advancedHealthData.fiber);
-                if (fiber === 1) bioAge += 2;
-                else if (fiber === 5) bioAge -= 2;
-
-                // 6. Flexibilité (toucher orteils)
-                if (advancedHealthData.flexibility === 'easy') bioAge -= 2;
-                else if (advancedHealthData.flexibility === 'hard') bioAge += 0;
-                else if (advancedHealthData.flexibility === 'impossible') bioAge += 3;
-
-                // 7. Équilibre
-                if (advancedHealthData.balance === 'yes') bioAge -= 2;
-                else if (advancedHealthData.balance === 'hard') bioAge += 0;
-                else bioAge += 3;
-
-                // 8. Douleurs articulaires
-                const jointPain = parseInt(advancedHealthData.jointPain);
-                if (jointPain === 1) bioAge -= 1;
-                else if (jointPain === 5) bioAge += 4;
-
-                // 9. Protection solaire
-                if (advancedHealthData.sunProtection === 'always') bioAge -= 1;
-                else if (advancedHealthData.sunProtection === 'never') bioAge += 2;
-
-                // 10. Pollution
-                if (advancedHealthData.airQuality === 'low') bioAge -= 1;
-                else if (advancedHealthData.airQuality === 'high') bioAge += 2;
-
-                // 11. Temps d'écran
-                const screenTime = parseInt(advancedHealthData.screenTime);
-                if (screenTime < 2) bioAge -= 1;
-                else if (screenTime >= 4 && screenTime < 6) bioAge += 1;
-                else if (screenTime >= 6) bioAge += 3;
-
-                // 12. Activités cognitives
-                const cognitive = parseInt(advancedHealthData.cognitiveActivities);
-                if (cognitive === 1) bioAge += 2;
-                else if (cognitive === 5) bioAge -= 2;
-
-                // 13. Qualité mémoire
-                const memory = parseInt(advancedHealthData.memoryQuality);
-                if (memory === 1) bioAge += 3;
-                else if (memory === 5) bioAge -= 2;
-
-                // 14. Suppléments
-                const supCount = advancedHealthData.supplements.length;
-                bioAge -= supCount; // -1 an par supplément
-
-                // 15. Bilans santé
-                if (advancedHealthData.medicalCheckups === 'annual') bioAge -= 2;
-                else if (advancedHealthData.medicalCheckups === 'never') bioAge += 3;
 
                 bioAge = Math.max(Math.round(bioAge), age - 15);
                 bioAge = Math.min(bioAge, age + 20);
@@ -841,15 +730,8 @@
 
             const handleSubmit = () => {
                 if (formData.age && formData.weight && formData.height) {
-                    // MODIFICATION : Passer à l'étape Santé Avancée au lieu de calculer directement
-                    setStep('advanced-health');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    calculateBioAge();
                 }
-            };
-
-            // NOUVEAU : Fonction pour calculer l'âge bio après l'étape santé avancée
-            const handleAdvancedSubmit = () => {
-                calculateBioAge();
             };
 
             const shareText = result ? `J'ai ${result.chronologicalAge} ans mais mon âge biologique est de ${result.bioAge} ans ! ${result.difference > 0 ? `Je suis ${Math.abs(result.difference)} ans plus jeune ! 🎉` : result.difference < 0 ? `Je dois améliorer ma santé... 💪` : `Je suis pile dans la moyenne !`} Calcule le tien sur BioAge !` : '';
@@ -872,21 +754,12 @@
             if (step === 'final-result' && result && wellbeingScore) {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-4xl mx-auto' },
-                            // Disclaimer médical fort
-                            React.createElement('div', { className: 'bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mb-6' },
-                                React.createElement('div', { className: 'flex items-start' },
-                                    React.createElement('div', { className: 'flex-shrink-0' },
-                                        React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-6 h-6 text-red-600' })
-                                    ),
-                                    React.createElement('div', { className: 'ml-3' },
-                                        React.createElement('h3', { className: 'text-lg font-bold text-red-900 mb-2' }, '⚠️ Bilan à titre informatif uniquement'),
-                                        React.createElement('p', { className: 'text-sm text-red-800 leading-relaxed' },
-                                            'Ce bilan complet est une estimation basée sur des données statistiques. Il ne remplace en aucun cas un diagnostic médical ou psychologique professionnel. ' +
-                                            'Les recommandations sont générales et ne constituent pas des conseils médicaux personnalisés. Consultez toujours un professionnel de santé.'
-                                        )
-                                    )
-                                )
-                            ),
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
+                        ),
+                        
+                        React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8 mb-6' },
                             React.createElement('div', { className: 'text-center mb-8' },
                                 React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-2' }, 'Votre Bilan Complet'),
                                 React.createElement('p', { className: 'text-gray-600' }, 'Analyse complète : Âge biologique + Bien-être')
@@ -973,402 +846,30 @@
                                 },
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
-                        )
-                    )
-                );
-            }
+                        ),
 
-            // AJOUT : PAGE QUESTIONS BIEN-ÊTRE
-            // CODE À INSÉRER DANS index.html AVANT LA LIGNE 993 (if (step === 'wellbeing'))
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
+                        ),
 
-            // NOUVEAU : PAGE SANTÉ AVANCÉE (15 QUESTIONS)
-            if (step === 'advanced-health') {
-                return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 py-8 px-4' },
-                    React.createElement('div', { className: 'max-w-3xl mx-auto' },
-                        // Disclaimer médical
-                        React.createElement('div', { className: 'bg-red-50 border-l-4 border-red-500 p-5 rounded-lg mb-6' },
-                            React.createElement('div', { className: 'flex items-start' },
-                                React.createElement('i', { 'data-lucide': 'shield-alert', className: 'w-5 h-5 text-red-600 mr-2 flex-shrink-0' }),
-                                React.createElement('p', { className: 'text-sm text-red-800' },
+                        React.createElement('div', { className: 'bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded' },
+                            React.createElement('div', { className: 'flex' },
+                                React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-5 h-5 text-yellow-600 mr-2 flex-shrink-0' }),
+                                React.createElement('p', { className: 'text-sm text-yellow-800' },
                                     React.createElement('strong', null, 'Important : '),
-                                    'Ces questions portent sur votre santé physique. Elles ne remplacent pas un examen médical. En cas de doute, consultez un professionnel de santé.'
+                                    'Ce calculateur est à titre informatif uniquement et ne remplace pas un avis médical professionnel. Consultez toujours un professionnel de santé pour des conseils personnalisés.'
                                 )
                             )
-                        ),
-                        React.createElement('div', { className: 'text-center mb-8' },
-                            React.createElement('div', { className: 'inline-block bg-gradient-to-r from-green-600 to-blue-600 p-4 rounded-2xl mb-4' },
-                                React.createElement('i', { 'data-lucide': 'activity', className: 'w-16 h-16 text-white' })
-                            ),
-                            React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-4' }, 'Santé Approfondie'),
-                            React.createElement('p', { className: 'text-xl text-gray-600' }, 'Quelques questions supplémentaires pour une analyse plus précise')
-                        ),
-
-                        React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8' },
-                            // Section 1: Santé Cardiovasculaire
-                            React.createElement('div', { className: 'mb-8' },
-                                React.createElement('h2', { className: 'text-2xl font-bold text-gray-800 mb-6 flex items-center' },
-                                    React.createElement('span', { className: 'bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3' }, '♥'),
-                                    'Santé Cardiovasculaire'
-                                ),
-
-                                React.createElement('div', { className: 'space-y-6' },
-                                    // Q1: Tension artérielle
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' }, 'Votre tension artérielle'),
-                                        React.createElement('select', {
-                                            name: 'bloodPressure',
-                                            value: advancedHealthData.bloodPressure,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none'
-                                        },
-                                            React.createElement('option', { value: '1' }, 'Normale (< 120/80)'),
-                                            React.createElement('option', { value: '2' }, 'Pré-hypertension (120-139/80-89)'),
-                                            React.createElement('option', { value: '3' }, 'Hypertension légère (140-159/90-99)'),
-                                            React.createElement('option', { value: '4' }, 'Hypertension sévère (≥160/100)'),
-                                            React.createElement('option', { value: '5' }, 'Je ne sais pas')
-                                        )
-                                    ),
-
-                                    // Q2: Fréquence cardiaque
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Fréquence cardiaque au repos (bpm)'
-                                        ),
-                                        React.createElement('input', {
-                                            type: 'range',
-                                            name: 'restingHeartRate',
-                                            min: '40',
-                                            max: '100',
-                                            value: advancedHealthData.restingHeartRate,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full'
-                                        }),
-                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
-                                            React.createElement('span', null, '40'),
-                                            React.createElement('span', { className: 'font-bold text-green-600' }, advancedHealthData.restingHeartRate + ' bpm'),
-                                            React.createElement('span', null, '100')
-                                        )
-                                    ),
-
-                                    // Q3: Antécédents familiaux
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Maladies cardiaques dans votre famille proche ?'
-                                        ),
-                                        React.createElement('div', { className: 'grid grid-cols-3 gap-4' },
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.familyHistory === 'no' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'familyHistory',
-                                                    value: 'no',
-                                                    checked: advancedHealthData.familyHistory === 'no',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold' }, 'Non')
-                                            ),
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.familyHistory === 'after70' ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'familyHistory',
-                                                    value: 'after70',
-                                                    checked: advancedHealthData.familyHistory === 'after70',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold text-sm' }, 'Après 70 ans')
-                                            ),
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.familyHistory === 'before60' ? 'border-red-500 bg-red-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'familyHistory',
-                                                    value: 'before60',
-                                                    checked: advancedHealthData.familyHistory === 'before60',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold text-sm' }, 'Avant 60 ans')
-                                            )
-                                        )
-                                    )
-                                )
-                            ),
-
-                            // Section 2: Santé Digestive
-                            React.createElement('div', { className: 'mb-8' },
-                                React.createElement('h2', { className: 'text-2xl font-bold text-gray-800 mb-6 flex items-center' },
-                                    React.createElement('span', { className: 'bg-orange-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3' }, '🍎'),
-                                    'Santé Digestive'
-                                ),
-
-                                React.createElement('div', { className: 'space-y-6' },
-                                    // Q4: Digestion
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Qualité de votre digestion'
-                                        ),
-                                        React.createElement('input', {
-                                            type: 'range',
-                                            name: 'digestion',
-                                            min: '1',
-                                            max: '5',
-                                            value: advancedHealthData.digestion,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full'
-                                        }),
-                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
-                                            React.createElement('span', null, 'Problèmes'),
-                                            React.createElement('span', null, 'Excellente')
-                                        )
-                                    ),
-
-                                    // Q5: Fibres
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Consommation d\'aliments riches en fibres'
-                                        ),
-                                        React.createElement('input', {
-                                            type: 'range',
-                                            name: 'fiber',
-                                            min: '1',
-                                            max: '5',
-                                            value: advancedHealthData.fiber,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full'
-                                        }),
-                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
-                                            React.createElement('span', null, 'Rarement'),
-                                            React.createElement('span', null, 'Quotidien')
-                                        )
-                                    )
-                                )
-                            ),
-
-                            // Section 3: Mobilité & Flexibilité
-                            React.createElement('div', { className: 'mb-8' },
-                                React.createElement('h2', { className: 'text-2xl font-bold text-gray-800 mb-6 flex items-center' },
-                                    React.createElement('span', { className: 'bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3' }, '🤸'),
-                                    'Mobilité & Flexibilité'
-                                ),
-
-                                React.createElement('div', { className: 'space-y-6' },
-                                    // Q6: Flexibilité
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Pouvez-vous toucher vos orteils sans plier les genoux ?'
-                                        ),
-                                        React.createElement('div', { className: 'grid grid-cols-3 gap-4' },
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.flexibility === 'easy' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'flexibility',
-                                                    value: 'easy',
-                                                    checked: advancedHealthData.flexibility === 'easy',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold' }, 'Facilement')
-                                            ),
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.flexibility === 'hard' ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'flexibility',
-                                                    value: 'hard',
-                                                    checked: advancedHealthData.flexibility === 'hard',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold' }, 'Difficilement')
-                                            ),
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.flexibility === 'impossible' ? 'border-red-500 bg-red-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'flexibility',
-                                                    value: 'impossible',
-                                                    checked: advancedHealthData.flexibility === 'impossible',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold' }, 'Impossible')
-                                            )
-                                        )
-                                    ),
-
-                                    // Q7: Équilibre
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Équilibre sur un pied pendant 30 secondes'
-                                        ),
-                                        React.createElement('div', { className: 'grid grid-cols-3 gap-4' },
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.balance === 'yes' ? 'border-green-500 bg-green-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'balance',
-                                                    value: 'yes',
-                                                    checked: advancedHealthData.balance === 'yes',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold' }, 'Oui')
-                                            ),
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.balance === 'hard' ? 'border-yellow-500 bg-yellow-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'balance',
-                                                    value: 'hard',
-                                                    checked: advancedHealthData.balance === 'hard',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold' }, 'Avec difficulté')
-                                            ),
-                                            React.createElement('label', {
-                                                className: `flex items-center justify-center p-4 border-2 rounded-lg cursor-pointer transition ${advancedHealthData.balance === 'no' ? 'border-red-500 bg-red-50' : 'border-gray-200'}`
-                                            },
-                                                React.createElement('input', {
-                                                    type: 'radio',
-                                                    name: 'balance',
-                                                    value: 'no',
-                                                    checked: advancedHealthData.balance === 'no',
-                                                    onChange: handleAdvancedHealthChange,
-                                                    className: 'mr-2'
-                                                }),
-                                                React.createElement('span', { className: 'font-semibold' }, 'Non')
-                                            )
-                                        )
-                                    ),
-
-                                    // Q8: Douleurs articulaires
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Fréquence des douleurs articulaires'
-                                        ),
-                                        React.createElement('input', {
-                                            type: 'range',
-                                            name: 'jointPain',
-                                            min: '1',
-                                            max: '5',
-                                            value: advancedHealthData.jointPain,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full'
-                                        }),
-                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
-                                            React.createElement('span', null, 'Jamais'),
-                                            React.createElement('span', null, 'Quotidien')
-                                        )
-                                    )
-                                )
-                            ),
-
-                            // Section 4: Environnement (questions simplifiées pour gagner de la place)
-                            React.createElement('div', { className: 'mb-8' },
-                                React.createElement('h2', { className: 'text-2xl font-bold text-gray-800 mb-6 flex items-center' },
-                                    React.createElement('span', { className: 'bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3' }, '🌍'),
-                                    'Environnement & Habitudes'
-                                ),
-
-                                React.createElement('div', { className: 'space-y-6' },
-                                    // Q9-13: Questions rapides
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Temps d\'écran quotidien (hors travail)'
-                                        ),
-                                        React.createElement('input', {
-                                            type: 'range',
-                                            name: 'screenTime',
-                                            min: '0',
-                                            max: '12',
-                                            value: advancedHealthData.screenTime,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full'
-                                        }),
-                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
-                                            React.createElement('span', null, '0h'),
-                                            React.createElement('span', { className: 'font-bold' }, advancedHealthData.screenTime + 'h'),
-                                            React.createElement('span', null, '12h')
-                                        )
-                                    ),
-
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Activités intellectuelles (lecture, puzzles, apprentissage)'
-                                        ),
-                                        React.createElement('input', {
-                                            type: 'range',
-                                            name: 'cognitiveActivities',
-                                            min: '1',
-                                            max: '5',
-                                            value: advancedHealthData.cognitiveActivities,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full'
-                                        }),
-                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
-                                            React.createElement('span', null, 'Rarement'),
-                                            React.createElement('span', null, 'Quotidien')
-                                        )
-                                    ),
-
-                                    React.createElement('div', null,
-                                        React.createElement('label', { className: 'block text-gray-700 font-semibold mb-3' },
-                                            'Qualité de votre mémoire'
-                                        ),
-                                        React.createElement('input', {
-                                            type: 'range',
-                                            name: 'memoryQuality',
-                                            min: '1',
-                                            max: '5',
-                                            value: advancedHealthData.memoryQuality,
-                                            onChange: handleAdvancedHealthChange,
-                                            className: 'w-full'
-                                        }),
-                                        React.createElement('div', { className: 'flex justify-between text-sm text-gray-600 mt-2' },
-                                            React.createElement('span', null, 'Mauvaise'),
-                                            React.createElement('span', null, 'Excellente')
-                                        )
-                                    )
-                                )
-                            ),
-
-                            // Bouton Submit
-                            React.createElement('button', {
-                                onClick: handleAdvancedSubmit,
-                                className: 'w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white text-xl font-bold py-4 rounded-xl transition transform hover:scale-105 shadow-lg'
-                            }, '🎯 Calculer Mon Âge Biologique Complet')
                         )
                     )
                 );
             }
-
-
+            
+            // AJOUT : PAGE QUESTIONS BIEN-ÊTRE
             if (step === 'wellbeing') {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-3xl mx-auto' },
-                        // Disclaimer santé mentale
-                        React.createElement('div', { className: 'bg-red-50 border-l-4 border-red-500 p-5 rounded-lg mb-6' },
-                            React.createElement('div', { className: 'flex items-start' },
-                                React.createElement('i', { 'data-lucide': 'heart-pulse', className: 'w-5 h-5 text-red-600 mr-2 flex-shrink-0' }),
-                                React.createElement('p', { className: 'text-sm text-red-800' },
-                                    React.createElement('strong', null, 'Santé mentale : '),
-                                    'Ces questions ne constituent pas un diagnostic psychologique. Si vous éprouvez des difficultés, parlez-en à un professionnel de la santé mentale.'
-                                )
-                            )
-                        ),
                         React.createElement('div', { className: 'text-center mb-8' },
                             React.createElement('div', { className: 'inline-block bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-2xl mb-4' },
                                 React.createElement('i', { 'data-lucide': 'heart', className: 'w-16 h-16 text-white' })
@@ -1508,21 +1009,11 @@
             if (step === 'result' && result) {
                 return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4' },
                     React.createElement('div', { className: 'max-w-4xl mx-auto' },
-                        // Disclaimer médical fort
-                        React.createElement('div', { className: 'bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mb-6' },
-                            React.createElement('div', { className: 'flex items-start' },
-                                React.createElement('div', { className: 'flex-shrink-0' },
-                                    React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-6 h-6 text-red-600' })
-                                ),
-                                React.createElement('div', { className: 'ml-3' },
-                                    React.createElement('h3', { className: 'text-lg font-bold text-red-900 mb-2' }, '⚠️ Résultats à titre informatif uniquement'),
-                                    React.createElement('p', { className: 'text-sm text-red-800 leading-relaxed' },
-                                        'Ces résultats sont des estimations basées sur des données statistiques générales. Ils ne constituent PAS un diagnostic médical. ' +
-                                        'Pour toute préoccupation concernant votre santé, consultez impérativement un professionnel de santé qualifié.'
-                                    )
-                                )
-                            )
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                         ),
+                        
                         React.createElement('div', { className: 'bg-white rounded-3xl shadow-2xl p-8 mb-6' },
                             React.createElement('div', { className: 'text-center mb-8' },
                                 React.createElement('h1', { className: 'text-4xl font-bold text-gray-800 mb-2' }, 'Votre Résultat'),
@@ -1611,7 +1102,54 @@
                                 className: 'w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xl font-bold py-4 rounded-xl transition transform hover:scale-105 shadow-lg mb-4'
                             }, '✨ Continuer vers le Bien-être →'),
 
-                            React.createElement('div', { className: 'bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl p-6 text-white text-center mb-6' },
+                            React.createElement('div', { className: 'bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mb-8' },
+                                React.createElement('h3', { className: 'text-xl font-bold text-gray-800 mb-2' }, '🎯 Produits Recommandés pour Vous'),
+                                React.createElement('div', { className: 'grid md:grid-cols-3 gap-4' },
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'activity', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Balance Connectée'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Suivez votre évolution quotidiennement'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/3WrLTGi",
+                                            target: '_blank',
+                                            className: 'block bg-blue-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-blue-700 transition' 
+                                        }, 'Voir sur Amazon →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    ),
+
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'utensils', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Oméga 3 Premium'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Santé cardiovasculaire et cérébrale'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/4o70Ida",
+                                            target: '_blank',
+                                            className: 'block bg-green-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-green-700 transition' 
+                                        }, 'Découvrir →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    ),
+
+                                    React.createElement('div', { className: 'bg-white rounded-lg p-4 shadow hover:shadow-lg transition' },
+                                        React.createElement('div', { className: 'bg-gray-200 h-32 rounded mb-3 flex items-center justify-center' },
+                                            React.createElement('i', { 'data-lucide': 'brain', className: 'w-12 h-12 text-gray-400' })
+                                        ),
+                                        React.createElement('h4', { className: 'font-bold text-gray-800 mb-2' }, 'Écouteurs Sport'),
+                                        React.createElement('p', { className: 'text-sm text-gray-600 mb-3' }, 'Motivation pour vos entraînements'),
+                                        React.createElement('a', { 
+                                            href:"https://amzn.to/46XD3Fg",
+                                            target: '_blank',
+                                            className: 'block bg-purple-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-purple-700 transition' 
+                                        }, 'Commencer →'),
+                                        React.createElement('p', { className: 'text-xs text-gray-400 mt-2' }, '🔗 Lien affilié')
+                                    )
+                                )
+                            ),
+
+                            React.createElement('div', { className: 'bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl p-6 text-white text-center' },
                                 React.createElement('i', { 'data-lucide': 'share-2', className: 'w-12 h-12 mx-auto mb-3' }),
                                 React.createElement('h3', { className: 'text-2xl font-bold mb-2' }, 'Partagez Votre Résultat !'),
                                 React.createElement('p', { className: 'mb-6 opacity-90' }, 'Défiez vos amis de calculer leur âge biologique'),
@@ -1630,7 +1168,7 @@
                                         React.createElement('i', { 'data-lucide': 'twitter', className: 'w-5 h-5' }),
                                         'X (Twitter)'
                                     ),
-                                    React.createElement('button', {
+                                    React.createElement('button', { 
                                         onClick: () => share('whatsapp'),
                                         className: 'bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition'
                                     },
@@ -1647,54 +1185,29 @@
                                 },
                                 className: 'mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-lg transition'
                             }, '← Refaire le Test')
+                        ),
+
+                        React.createElement('div', { className: 'mb-6 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                            React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                            React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
+                        ),
+
+                        React.createElement('div', { className: 'bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded' },
+                            React.createElement('div', { className: 'flex' },
+                                React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-5 h-5 text-yellow-600 mr-2 flex-shrink-0' }),
+                                React.createElement('p', { className: 'text-sm text-yellow-800' },
+                                    React.createElement('strong', null, 'Important : '),
+                                    'Ce calculateur est à titre informatif uniquement et ne remplace pas un avis médical professionnel. Consultez toujours un professionnel de santé pour des conseils personnalisés.'
+                                )
+                            )
                         )
                     )
                 );
             }
 
-            // NOUVEAU : Composant Header pour navigation
-            const Header = () => React.createElement('header', { className: 'bg-white shadow-md sticky top-0 z-50' },
-                React.createElement('div', { className: 'max-w-7xl mx-auto px-4 py-4' },
-                    React.createElement('div', { className: 'flex justify-between items-center' },
-                        React.createElement('a', { href: '/', className: 'flex items-center space-x-2' },
-                            React.createElement('span', { className: 'text-2xl font-bold text-blue-600' }, '🧬 BioAge'),
-                            React.createElement('span', { className: 'text-sm text-gray-500' }, 'Santé & Longévité')
-                        ),
-                        React.createElement('nav', { className: 'hidden md:flex space-x-6' },
-                            React.createElement('a', { href: '/blog/comment-calculer-age-biologique.html', className: 'text-gray-700 hover:text-blue-600 transition' }, 'Comment ça marche ?'),
-                            React.createElement('a', { href: '/blog/alimentation-anti-age.html', className: 'text-gray-700 hover:text-blue-600 transition' }, 'Alimentation'),
-                            React.createElement('a', { href: '/blog/sport-age-biologique.html', className: 'text-gray-700 hover:text-blue-600 transition' }, 'Sport'),
-                            React.createElement('a', { href: '/blog/stress-age-biologique.html', className: 'text-gray-700 hover:text-blue-600 transition' }, 'Stress'),
-                            React.createElement('a', { href: '/blog/sommeil-vieillissement.html', className: 'text-gray-700 hover:text-blue-600 transition' }, 'Sommeil'),
-                            React.createElement('a', { href: '/faq.html', className: 'text-gray-700 hover:text-blue-600 transition font-semibold' }, 'FAQ')
-                        )
-                    )
-                )
-            );
-
-            // FORMULAIRE INITIAL (AVEC HEADER)
-            return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50' },
-                React.createElement(Header),
-                React.createElement('div', { className: 'py-12 px-4' },
-                    React.createElement('div', { className: 'max-w-3xl mx-auto' },
-                    // Disclaimer médical fort
-                    React.createElement('div', { className: 'bg-red-50 border-l-4 border-red-500 p-6 rounded-lg mb-8' },
-                        React.createElement('div', { className: 'flex items-start' },
-                            React.createElement('div', { className: 'flex-shrink-0' },
-                                React.createElement('i', { 'data-lucide': 'alert-circle', className: 'w-6 h-6 text-red-600' })
-                            ),
-                            React.createElement('div', { className: 'ml-3' },
-                                React.createElement('h3', { className: 'text-lg font-bold text-red-900 mb-2' }, '⚠️ Important : Ceci n\'est PAS un diagnostic médical'),
-                                React.createElement('p', { className: 'text-sm text-red-800 leading-relaxed' },
-                                    'Ce test est un outil éducatif et de sensibilisation uniquement. Il ne remplace en aucun cas un examen médical professionnel. ' +
-                                    'Les résultats sont indicatifs et basés sur des données statistiques générales. ' +
-                                    'Pour toute question sur votre santé, consultez un médecin ou professionnel de santé qualifié. ' +
-                                    'Ne prenez aucune décision médicale basée uniquement sur ce test.'
-                                )
-                            )
-                        )
-                    ),
-
+            // FORMULAIRE INITIAL (VOTRE CODE ORIGINAL - INCHANGÉ)
+            return React.createElement('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4' },
+                React.createElement('div', { className: 'max-w-3xl mx-auto' },
                     React.createElement('div', { className: 'text-center mb-12' },
                         React.createElement('div', { className: 'inline-block bg-gradient-to-r from-blue-600 to-purple-600 p-4 rounded-2xl mb-4' },
                             React.createElement('i', { 'data-lucide': 'heart', className: 'w-16 h-16 text-white' })
@@ -1939,10 +1452,14 @@
                         React.createElement('p', { className: 'text-center text-sm text-gray-500 mt-4' },
                             '✨ Résultat instantané • 100% gratuit • Partage avec tes amis'
                         )
+                    ),
+
+                    React.createElement('div', { className: 'mt-8 bg-gray-100 rounded-lg p-8 text-center text-gray-600 border-2 border-dashed border-gray-300' },
+                        React.createElement('p', { className: 'text-sm font-semibold mb-2' }, '📢 ESPACE PUBLICITAIRE GOOGLE ADSENSE'),
+                        React.createElement('p', { className: 'text-xs' }, 'Collez votre code AdSense ici une fois approuvé (728x90 pixels)')
                     )
                 )
-            )
-        );
+            );
         }
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
